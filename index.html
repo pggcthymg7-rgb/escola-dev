@@ -298,7 +298,23 @@ const G=[
 ["Limite de uso (rate limit)","Quantos pedidos por minuto ou por dia uma API aceita de você."],
 ["Documentação","Manual oficial de uma API ou biblioteca: como se identificar, quais rotas existem, exemplos."],
 ["Express","Biblioteca de Node.js usada para criar APIs com rotas como app.get e app.post."],
-["Gemini","A IA do Google que a secretária usa para entender mensagens."]
+["Gemini","A IA do Google que a secretária usa para entender mensagens."],
+["Endereço IP","Número que identifica um computador na rede, como 203.0.113.7. O DNS traduz o nome do domínio para esse número."],
+["Porta","Número da “porta de entrada” de um programa dentro do computador. O https usa a 443 e o http usa a 80. Em testes locais, é comum ver localhost:3000."],
+["Protocolo","Acordo escrito sobre como dois programas conversam, para que sistemas feitos por pessoas diferentes se entendam. HTTP é um protocolo."],
+["localhost","Nome especial que significa “este próprio computador”. Serve para testar um servidor na sua máquina antes de publicar."],
+["Cabeçalho (header)","Informação sobre o pedido ou a resposta, em pares nome: valor. É nele que costuma viajar a chave de API."],
+["Corpo (body)","O conteúdo principal de um pedido ou de uma resposta, como os dados enviados num POST ou o JSON devolvido."],
+["Query string","Parâmetros no fim da URL, depois do ?, em pares nome=valor separados por &, como ?cidade=Goiania&quartos=3."],
+["TLS e certificado","TLS é o conjunto de regras que criptografa a conversa no https. O certificado é o documento que prova que o servidor é quem diz ser."],
+["Criptografia","Embaralhar dados de modo que só quem tem a chave certa consiga lê-los."],
+["Sem estado (stateless)","Característica do HTTP: cada pedido chega como se fosse o primeiro, sem o servidor lembrar do anterior. Por isso o cliente reenvia sua identificação a cada pedido."],
+["Cookie e token","Pequenos textos que provam quem você é. O cookie é guardado e reenviado sozinho pelo navegador; o token é enviado pelo programa, em geral num cabeçalho."],
+["Conteúdo estático e dinâmico","Estático: arquivo pronto, igual para todos. Dinâmico: resposta montada por código a cada pedido, conforme quem pede e os dados guardados."],
+["Serverless (funções sob demanda)","Código que a hospedagem executa só quando chega um pedido, como as Cloudflare Functions do zava-tours. Ainda há servidor, mas você não cuida dele."],
+["Latência","Tempo de ida e volta de um pedido. Quanto mais longe o servidor, maior."],
+["Timeout","Erro de tempo esgotado: o cliente desistiu porque a resposta demorou demais."],
+["curl","Programa de terminal que faz um pedido HTTP e mostra a resposta. Com curl -i você vê também o status e os cabeçalhos."]
 ];
 G.sort((a,b)=>a[0].localeCompare(b[0],"pt"));
 const NAV=[["home","🏠","Início"],["apo","📖","Apostila"],["gls","📚","Termos"],["tar","✅","Tarefas"],["pro","📝","Provas"],["tri","🧭","Trilha"],["mais","⚙️","Mais"]];
