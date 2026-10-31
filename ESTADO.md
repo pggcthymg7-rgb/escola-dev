@@ -1,21 +1,39 @@
 # Escola Dev: estado do projeto
 
-Última atualização: 31/10/2026. Atualize este arquivo ao fim de cada sessão de trabalho.
+Última atualização: 31/10/2026 (terceira sessão, Marco 1). Atualize este arquivo ao fim de cada sessão de trabalho.
 
 ## O que é
 Plataforma de estudo pessoal (apostila, tarefas, provas, glossário, revisão com cartões, painel com meta diária). Funciona offline como PWA, hospedada no GitHub Pages. A plataforma é uma ferramenta de apoio e não faz parte do currículo do aluno.
 
-## Arquitetura atual
-- Arquivos: `index.html` (todo o app), `manifest.json`, `sw.js`, `icon-180.png`, `icon-192.png`, `icon-512.png`.
-- Dados do conteúdo, dentro do `index.html`: `L` (lições), `T` (tarefas), `Q` (perguntas da prova), `P` (trilha de fases), `G` (glossário, ordenado automaticamente).
-- Telas: home, apo (apostila), gls (termos e revisão), tar (tarefas), pro (provas), tri (trilha), mais (tema, exportar e importar progresso).
-- Progresso do aluno: `localStorage`, chave `escoladev`. Nunca versionar progresso com dados pessoais.
-- Atualização do app: ao publicar versão nova, aumentar `V` no `sw.js` (ex.: escola-dev-v2), senão o aparelho mantém a versão antiga.
+## Arquitetura atual (Marco 1)
+- `index.html`: só a casca (barra de navegação e `#app`). Sem etapa de build.
+- `css/app.css`: todos os estilos (tema claro e escuro, celular e desktop).
+- `js/registro.js`: registro do conteúdo (aulas, atividades, glossário, índice do curso). Roda no navegador, no service worker e no Node.
+- `js/motor.js`: regras puras: liberação, notas, sorteio, fila de revisão, média do módulo.
+- `js/armazenamento.js`: salvar e carregar, migração de esquema, backup, caderno em Markdown.
+- `js/ui-base.js`, `ui-curso.js`, `ui-atividade.js`, `ui-extras.js`, `app.js`: telas e inicialização.
+- `content/`: `indice.js` (módulos, blocos e lista de arquivos carregados), `glossario.js`, `legado.js` (material da primeira versão), `modulo-demo/` (demonstração do motor), e no futuro `modulo-XX/aula-YY.js`.
+- `sw.js`: cache offline de tudo. Lê a lista de arquivos de `content/indice.js`. Versão atual do cache: `escola-dev-v6`. Subir a versão a cada mudança de app ou de conteúdo.
+- `tools/validar-conteudo.js` e `tools/verificar.sh`; `tests/`; `docs/ESQUEMA-CONTEUDO.md` (como escrever conteúdo) e `docs/PENDENCIAS.md`.
+- Progresso do aluno: `localStorage`, chave `escoladev`, esquema `v: 2`. Cópia do progresso antigo em `escoladev_v1_backup`. Nunca versionar progresso com dados pessoais.
+- Telas: Início, Curso (mapa, módulo, aula, tarefa, teste, trabalho, prova), Buscar, Termos (dicionário, cartões, fila de revisão), Dúvidas, Boletim, Mais (tema, backup, caderno, armazenamento, material anterior).
+
+## Como verificar antes de cada commit
+```
+sh tools/verificar.sh          # validador, testes da lógica e teste da interface (celular e desktop)
+sh tools/verificar.sh rapido   # sem o teste de navegador
+```
+
+## Estado do Marco 1 (motor da escola)
+Pronto para sua aprovação. Itens da definição de pronto: liberação por regras (testada), tarefas, testes e provas respondidos na página com salvamento automático, dissertativas com resposta-modelo, critérios, autoavaliação e botão de revisão, boletim, caderno de dúvidas, anotações por aula e busca, backup (exportar e importar), lembrete de 7 dias e armazenamento persistente, offline inclusive provas, migração do progresso antigo sem perda, validador e testes passando, conferido em celular e desktop (Chromium). Pontos que pedem sua decisão ou conferência no iPhone: `docs/PENDENCIAS.md`.
+
+**Não comece o conteúdo dos módulos (Marco 2) antes da aprovação do motor.**
 
 ## Estado do conteúdo
-- 10 lições: m0a, m0b, m0c, m0d, m0e (Módulo 0.0), p0 (Passo 0), s1a, s1b, s2a, s2b.
-- 7 tarefas, 6 perguntas de prova, cerca de 55 termos.
-- **Padrão de profundidade:** a lição m0c (API). As lições m0a, m0b, m0d e m0e ainda estão rasas e devem ser aprofundadas nesse nível.
+- Módulos reais (0.0 a 10): todos "em construção", sem aulas. O Módulo 0.0 entra no Marco 2.
+- Módulo de demonstração do motor: 3 aulas, 1 teste de bloco, 1 trabalho e 1 prova (em `content/modulo-demo/`, a apagar no Marco 2).
+- Material anterior (primeira versão): 10 lições (m0a a m0e, p0, s1a, s1b, s2a, s2b), 7 tarefas, 6 perguntas de prova, trilha de 6 fases. A lição m0b foi aprofundada; m0c é o padrão de profundidade. Continua acessível e com progresso preservado.
+- Glossário: 85 termos.
 
 ## Padrão de uma lição (obrigatório)
 1. O problema que o conceito resolve.
@@ -47,15 +65,30 @@ Regra: nunca assumir vocabulário. Todo termo técnico é explicado na primeira 
 Cada módulo termina com prova própria (nota mínima sugerida: 70%) e tarefas com critérios.
 
 ## Próximos passos
-1. Aprofundar m0b (cliente e servidor), depois m0d, m0e e m0a.
-2. Separar o conteúdo em arquivos (`content/*.js`) para facilitar manutenção.
-3. Provas por módulo, com histórico de tentativas.
-4. Iniciar o módulo Computador e terminal.
+1. Aprovação do Marco 1 pelo aluno (testar o módulo de demonstração no iPhone e decidir os pontos de `docs/PENDENCIAS.md`).
+2. Marco 2: Módulo 0.0 completo (8 aulas com as 10 partes, referências verificadas, tarefas, 2 testes de bloco, trabalho e prova com banco duplicado). Aproveitar o material anterior (m0a a m0e) como base. Remover o módulo de demonstração.
+3. Marcos 3 em diante: um módulo por vez, na ordem da seção 7 do `ESPECIFICACAO.md`.
+
+## Decisões
+(Copiadas da seção 11 do `ESPECIFICACAO.md`.)
+
+1. O Claude Code só lê o `CLAUDE.md` do repositório; ele não enxerga os Projetos do claude.ai.
+2. O `CONTEXTO_PRIVADO.md` está num repositório público e o aluno decidiu manter assim.
+3. A correção das rotas da secretaria (login, CORS, validação) foi antecipada para o módulo 4, e não fica só no módulo de segurança.
+4. O Baileys, usado pela secretaria, é uma biblioteca não oficial do WhatsApp: confirmar as regras de uso comercial antes de vender.
+5. Nota de aprovação: 7,0 ou mais. Escala de 0 a 10.
+6. Dissertativas são autoavaliadas por critérios, com revisão opcional pelo Professor. Correção por IA fica para depois.
+7. O curso é medido por conteúdo dominado, nunca por tempo.
+8. O Professor só entra em uso depois de a plataforma estar pronta (Marco 1 e Marco 2, no mínimo).
 
 ## Regras de trabalho
-- Um commit por mudança, mensagem em português dizendo o que mudou.
+- Um commit por mudança, mensagem em português dizendo o que mudou. Em conteúdo, um commit por aula.
+- Rodar `sh tools/verificar.sh` antes de cada commit.
 - Nenhum segredo no repositório (chaves, tokens, telefones, `.env`).
 - Ao terminar a sessão, atualizar este arquivo e registrar abaixo.
 
 ## Registro de sessões
 - 31/10/2026: plataforma v0 criada, Módulo 0.0 iniciado, lição de API aprofundada, pacote PWA gerado e publicado.
+- 31/10/2026 (segunda sessão): lição m0b aprofundada nas 10 partes (URL, DNS, TLS, cabeçalhos, status, sem estado, estático e dinâmico, exemplos dos projetos, exercício com critérios). 16 termos novos no glossário. Cache do sw.js passou para escola-dev-v2. Página conferida no navegador sem erros. Não havia relatório em docs/relatorios/.
+- 31/10/2026 (terceira sessão): **Marco 1 entregue para aprovação.** Passos: trouxe o `ESPECIFICACAO.md` (estava na `main`) para a branch; copiei as Decisões para este arquivo e o Aviso sobre o Professor para o `CLAUDE.md`; separei CSS, conteúdo e código em arquivos; criei registro, motor (25 testes), armazenamento com migração v2 (17 testes), validador (20 testes que provam que ele reprova cada defeito), esquema documentado, módulo de demonstração, interface nova (mapa, leitor, tarefas, testes, trabalhos, provas, dissertativas com autoavaliação, revisão, boletim, dúvidas, busca, backup) e teste de navegador com 29 passos (celular, desktop, offline). Dois bugs achados pelos testes e corrigidos: o progresso migrado não era gravado até o primeiro salvamento, e "Nova tentativa" na tela de resultado mostrava o resultado antigo. Cache `escola-dev-v6`. Não houve conteúdo novo de módulo. Pendências em `docs/PENDENCIAS.md`.
+- 31/10/2026 (terceira sessão, ajuste): a aprovação passou a usar a nota exata, sem arredondamento (6,96 não aprova). A tela mostra a nota com uma casa decimal truncada para baixo (6,96 aparece como 6,9). Cache `escola-dev-v6`. Testes do motor: 27. Pull request aberto da branch para a `main`, sem merge.

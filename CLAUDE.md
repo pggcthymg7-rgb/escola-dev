@@ -2,11 +2,13 @@
 
 Instruções permanentes para o Claude Code neste repositório. Leia também o `ESTADO.md` antes de qualquer tarefa.
 
+**Hierarquia:** o `ESPECIFICACAO.md` manda sobre estrutura de curso, avaliação e liberação de conteúdo. Em caso de conflito com este arquivo, vale o `ESPECIFICACAO.md`. Leia-o inteiro antes de mexer na plataforma.
+
 ## O que é este projeto
 
 Escola Dev: plataforma de estudo pessoal (apostila, tarefas, provas, glossário, revisão com cartões, painel de progresso). É um PWA de uma página só, sem framework, publicado pelo GitHub Pages.
 
-Arquivos: `index.html` (todo o app), `manifest.json`, `sw.js`, `icon-180.png`, `icon-192.png`, `icon-512.png`, `ESTADO.md`.
+Arquivos: `index.html` (casca), `css/`, `js/` (motor e telas), `content/` (conteúdo do curso e glossário), `tools/` (validador), `tests/`, `docs/`, `manifest.json`, `sw.js`, ícones, `ESTADO.md`, `ESPECIFICACAO.md`. O mapa completo está no `ESTADO.md`.
 
 ## Sobre o aluno
 
@@ -46,20 +48,17 @@ A lição `m0c` (API), dentro do `index.html`, é o padrão de profundidade. Tod
 
 ## Onde mexer no código
 
-Dentro do `index.html`:
-
-- `L` = lições. Campos: `id`, `m` (módulo), `t` (título), `min` (minutos), `b` (corpo em HTML).
-- `T` = tarefas. Campos: `id`, `t`, `d`.
-- `Q` = perguntas de prova. Campos: `q`, `o` (opções), `a` (índice da correta), `e` (explicação).
-- `P` = trilha de fases.
-- `G` = glossário, ordenado automaticamente.
+- Conteúdo do curso: `content/` (índice em `content/indice.js`, aulas e atividades em `content/modulo-XX/`). O esquema está em `docs/ESQUEMA-CONTEUDO.md` e é conferido por `node tools/validar-conteudo.js`.
+- Glossário: `content/glossario.js`. Toda aula lista na parte 10 os termos novos, e eles precisam existir aqui.
+- Regras de liberação e notas: `js/motor.js`. Telas: `js/ui-*.js`. Estilos: `css/app.css`.
+- Material da primeira versão (lições `L`, tarefas `T`, prova `Q`, trilha `P`): `content/legado.js`, a ser substituído no Marco 2.
 
 ## Regras de trabalho
 
 - Um commit por mudança, mensagem em português dizendo o que mudou.
 - Nunca inclua segredos, chaves de API, tokens, telefones ou dados pessoais no repositório.
 - Ao alterar o app, aumente a versão do cache no `sw.js` (`escola-dev-v1` vira `escola-dev-v2`), senão o aparelho do aluno continua com a versão antiga.
-- Confira que a página abre e navega antes de considerar a tarefa pronta.
+- Confira que a página abre e navega antes de considerar a tarefa pronta: rode `sh tools/verificar.sh` (validador, testes e teste de navegador) antes de cada commit.
 - Ao fim de cada sessão, atualize o `ESTADO.md` e registre o que foi feito.
 - Antes de criar conteúdo novo, leia o último relatório em `docs/relatorios/`, se houver, e priorize as dúvidas e os erros registrados nele.
 
@@ -81,6 +80,14 @@ O ambiente na nuvem começa limpo a cada sessão. O hook `.claude/hooks/instalar
 - Use o Graphify antes de buscar arquivos ou responder dúvidas sobre o código (`query_graph`, `graphify_find`, `graphify_rank_files`). Só depois recorra a `Grep`, `Glob` ou `Read`. O índice é de um commit antigo e não cobre o `index.html` (o app é uma página só, sem módulos), então para o conteúdo do `index.html` use `Grep`/`Read` como complemento.
 - Responda no modo caveman por padrão (use `ultracave` quando o dono pedir ou o assunto for muito longo). O modo vale para o chat, em português do Brasil. Texto gravado no repositório (lições, commits, documentos, `ESTADO.md`) continua em português normal e completo. As lições da formação seguem o padrão de 10 partes e nunca usam linguagem telegráfica.
 - Antes de rodar uma skill que altera arquivos ou envia texto para fora (`caveman-setup`, `caveman-compress`, `caveman-learn`), avise o que vai mudar.
+
+## Aviso sobre o Professor
+
+Existe um segundo Projeto do aluno no claude.ai, chamado "Escola Dev - Professor", que ainda não está em uso. O aluno vai terminar de construir a plataforma primeiro e só depois começar a estudar com ele. O Construtor não consegue acessar o Professor, então sua função é avisar. Ao fim de cada sessão, dizer em uma frase: "Precisa levar algo ao Professor?" e responder sim ou não. Responder sim quando o `ESTADO.md` mudou ou há conteúdo novo; nesse caso, escrever um bloco curto "Para o Professor" com o que mudou, em linguagem simples, e lembrar que o aluno deve substituir o `ESTADO.md` no conhecimento do Professor. Enquanto o aluno não tiver começado a estudar, apenas manter o `ESTADO.md` atualizado.
+
+### Texto para as instruções do Professor (usar quando o aluno começar a estudar)
+
+> Você é o professor particular do aluno, no estilo de um professor universitário de curso técnico. Ensine como se ele nunca tivesse ouvido nenhum termo técnico. Defina cada palavra nova, use analogias e exemplos dos projetos dele. Dê preferência a entender o porquê a decorar. O aluno pode perguntar sobre qualquer assunto, ligado ou não ao curso, por curiosidade: responda direto e com profundidade proporcional, trate como matéria complementar e, quando fizer sentido, ligue ao conteúdo do curso e sugira anotar no caderno de dúvidas. Em exercícios do curso, não entregue a resposta antes de ele tentar. Corrija dissertativas usando a resposta-modelo e os critérios que ele colar, dizendo o que acertou, o que faltou e por quê. Admita incerteza e indique fontes quando não tiver certeza. Nível: curso técnico ou graduação EAD, nunca tese. Português do Brasil.
 
 ## Idioma
 
