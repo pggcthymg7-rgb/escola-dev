@@ -65,9 +65,10 @@ Regra: nunca assumir vocabulário. Todo termo técnico é explicado na primeira 
 Cada módulo termina com prova própria (nota mínima sugerida: 70%) e tarefas com critérios.
 
 ## Próximos passos
-1. Aprovação do Marco 1 pelo aluno: juntar a branch `claude/hopeful-fermi-h97b2a` (que já contém o Marco 1) na `main`, testar o módulo de demonstração no iPhone e decidir os pontos de `docs/PENDENCIAS.md`.
-2. Marco 2: Módulo 0.0 completo (8 aulas com as 10 partes, referências verificadas, tarefas, 2 testes de bloco, trabalho e prova com banco duplicado). Aproveitar o material anterior (m0a a m0e) como base. Remover o módulo de demonstração.
-3. Marcos 3 em diante: um módulo por vez, na ordem da seção 7 do `ESPECIFICACAO.md`.
+1. Visual lúdico (pedido do aluno): deixar a jornada prazerosa e não cansativa, mantendo a leitura confortável. Ver diretrizes em `docs/PASSAGEM.md`.
+2. Aprovação do Marco 1 pelo aluno: testar o módulo de demonstração no iPhone. Os pontos de `docs/PENDENCIAS.md` ficam como estão, por decisão do Claude Code (o aluno delegou a condução).
+3. Marco 2: Módulo 0.0 completo (8 aulas com as 10 partes, referências verificadas, tarefas, 2 testes de bloco, trabalho e prova com banco duplicado). Aproveitar o material anterior (m0a a m0e) como base. Remover o módulo de demonstração.
+4. Marcos 3 em diante: um módulo por vez, na ordem da seção 7 do `ESPECIFICACAO.md`.
 
 ## Decisões
 (Copiadas da seção 11 do `ESPECIFICACAO.md`.)
@@ -93,3 +94,4 @@ Cada módulo termina com prova própria (nota mínima sugerida: 70%) e tarefas c
 - 31/10/2026 (terceira sessão): **Marco 1 entregue para aprovação.** Passos: trouxe o `ESPECIFICACAO.md` (estava na `main`) para a branch; copiei as Decisões para este arquivo e o Aviso sobre o Professor para o `CLAUDE.md`; separei CSS, conteúdo e código em arquivos; criei registro, motor (25 testes), armazenamento com migração v2 (17 testes), validador (20 testes que provam que ele reprova cada defeito), esquema documentado, módulo de demonstração, interface nova (mapa, leitor, tarefas, testes, trabalhos, provas, dissertativas com autoavaliação, revisão, boletim, dúvidas, busca, backup) e teste de navegador com 29 passos (celular, desktop, offline). Dois bugs achados pelos testes e corrigidos: o progresso migrado não era gravado até o primeiro salvamento, e "Nova tentativa" na tela de resultado mostrava o resultado antigo. Cache `escola-dev-v6`. Não houve conteúdo novo de módulo. Pendências em `docs/PENDENCIAS.md`.
 - 31/10/2026 (terceira sessão, ajuste): a aprovação passou a usar a nota exata, sem arredondamento (6,96 não aprova). A tela mostra a nota com uma casa decimal truncada para baixo (6,96 aparece como 6,9). Cache `escola-dev-v6`. Testes do motor: 27. Pull request aberto da branch para a `main`, sem merge.
 - 31/10/2026 (quarta sessão): o aluno deixou de usar o chat de planejamento; o Claude Code passa a planejar, construir e verificar. Criado `docs/PASSAGEM.md` com o contexto do chat anterior. Seção "Como falar com o aluno" no `CLAUDE.md`, com as regras 1 a 4 e, a pedido do aluno, as regras 5 (o Claude Code conduz, tudo em linguagem comum) e 6 (segurança proporcional a uma plataforma de estudo pessoal). O Marco 1 foi juntado à branch `claude/hopeful-fermi-h97b2a`, sem conflito; `sh tools/verificar.sh` passou inteiro (validador, 27 + 17 + 20 testes, 29 passos de interface). Falta juntar essa branch na `main`.
+- 31/10/2026 (quarta sessão, continuação): com autorização do aluno, o Marco 1 foi publicado na `main`. O aluno definiu: secretaria e pendências de segurança não são prioridade (ele vai tirá-la do ar); a base do curso vem antes dos projetos; qualidade máxima, podendo acrescentar conteúdo ligado aos projetos; visual lúdico. Registrado em `docs/PASSAGEM.md`.
