@@ -32,7 +32,7 @@
       try { if (!ls.getItem(A.CHAVE_V1)) ls.setItem(A.CHAVE_V1, bruto); } catch (e) {}
     }
     if (obj && obj.v > A.VERSAO) aviso = 'Este progresso foi salvo por uma versão mais nova da escola. Atualize o app.';
-    return { S: A.migrar(obj), aviso };
+    return { S: A.migrar(obj), aviso, migrou: !!obj && (obj.v || 1) < A.VERSAO };
   };
   A.salvar = (S, ls) => {
     ls = ls || raiz.localStorage;

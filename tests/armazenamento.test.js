@@ -19,6 +19,10 @@ teste('progresso antigo é migrado sem perder nada', () => {
   ['lidas', 'resp', 'tent', 'em', 'erros', 'anot'].forEach(k => assert.deepStrictEqual(S[k], {}));
   assert.deepStrictEqual(S.duv, []);
 });
+teste('avisa quando migrou, para o app gravar no esquema novo', () => {
+  assert.ok(A.carregar(fakeLS({ escoladev: JSON.stringify(ANTIGO) })).migrou);
+  assert.ok(!A.carregar(fakeLS({ escoladev: JSON.stringify(A.padrao()) })).migrou); assert.ok(!A.carregar(fakeLS()).migrou);
+});
 teste('guarda cópia do progresso antigo antes de migrar', () => {
   const ls = fakeLS({ escoladev: JSON.stringify(ANTIGO) });
   A.carregar(ls); assert.deepStrictEqual(JSON.parse(ls.m[A.CHAVE_V1]), ANTIGO);
