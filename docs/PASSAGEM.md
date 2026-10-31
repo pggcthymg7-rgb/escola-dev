@@ -34,4 +34,5 @@ Em 31/10/2026 o aluno deixou de usar o chat de planejamento separado. A partir d
 - **Prioridade é a base, não os projetos.** Os projetos do GitHub são ideias e testes pessoais. Eles não precisam estar corretos agora e não passam na frente do conteúdo do curso. Servem como exemplos e como lugar para aplicar o que foi aprendido, no momento certo de cada módulo.
 - **Qualidade máxima.** Tratar o aluno como aplicado, que quer pôr em prática para melhorar o mundo. Sem pressa nem urgência de produto. Quando necessário, acrescentar aulas, termos, testes e exercícios de programação ligados aos projetos dele.
 - **Meta final:** sair do curso como um vibe coder completo, consciente do que está fazendo, usando a IA como assistente e não como cérebro principal.
+- **Professor:** tudo que o aluno precisar levar ao Professor é entregue pronto no chat, para copiar e colar (e o `ESTADO.md` também como arquivo anexado).
 - **Visual lúdico:** a plataforma deve ter um layout lúdico, para que a jornada seja prazerosa e não cansativa, sem perder a leitura confortável das aulas.
