@@ -53,10 +53,16 @@ Cada módulo termina com prova própria (nota mínima sugerida: 70%) e tarefas c
 4. Iniciar o módulo Computador e terminal.
 
 ## Decisões
-1. O Claude Code só lê o `CLAUDE.md` do repositório. Ele não lê os Projetos do claude.ai, então o que precisa valer aqui deve estar no `CLAUDE.md`.
-2. O `CONTEXTO_PRIVADO.md` está num repositório público e o aluno decidiu manter assim. Por isso, nada sensível deve ser escrito nele.
-3. A correção das rotas da secretaria (login, CORS e validação) deve ser antecipada para o módulo de Servidor, APIs e Node.js.
-4. O Baileys é uma biblioteca não oficial do WhatsApp. Confirmar as regras do WhatsApp antes de vender o produto, porque há risco de bloqueio do número.
+(Copiadas da seção 11 do `ESPECIFICACAO.md`.)
+
+1. O Claude Code só lê o `CLAUDE.md` do repositório; ele não enxerga os Projetos do claude.ai.
+2. O `CONTEXTO_PRIVADO.md` está num repositório público e o aluno decidiu manter assim.
+3. A correção das rotas da secretaria (login, CORS, validação) foi antecipada para o módulo 4, e não fica só no módulo de segurança.
+4. O Baileys, usado pela secretaria, é uma biblioteca não oficial do WhatsApp: confirmar as regras de uso comercial antes de vender.
+5. Nota de aprovação: 7,0 ou mais. Escala de 0 a 10.
+6. Dissertativas são autoavaliadas por critérios, com revisão opcional pelo Professor. Correção por IA fica para depois.
+7. O curso é medido por conteúdo dominado, nunca por tempo.
+8. O Professor só entra em uso depois de a plataforma estar pronta (Marco 1 e Marco 2, no mínimo).
 
 ## Regras de trabalho
 - Um commit por mudança, mensagem em português dizendo o que mudou.
