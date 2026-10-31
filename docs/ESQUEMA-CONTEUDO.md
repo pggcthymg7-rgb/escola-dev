@@ -26,7 +26,7 @@ Todo arquivo novo precisa constar em `arquivos` no `content/indice.js` (o app e 
   trabalho: "m04-trabalho", prova: "m04-prova" }
 ```
 
-Módulo sem `blocos` aparece como "em construção". Um módulo precisa de 7 a 14 aulas e cada bloco de 3 ou 4 aulas, com um teste de bloco. Um módulo com `demo: true` é só para demonstração: usa limites reduzidos e não conta no progresso do curso.
+Módulo sem `blocos` aparece como "em construção". Um módulo precisa de 7 a 14 aulas e cada bloco de 3 ou 4 aulas, com um teste de bloco. O módulo de demonstração (`demo: true`) fica em `tests/fixtures/` e só existe nos testes. Um módulo com `demo: true` é só para demonstração: usa limites reduzidos e não conta no progresso do curso.
 
 ## Aula
 

@@ -4,7 +4,7 @@ Lista viva do que ficou por fazer ou por confirmar. O validador (`node tools/val
 
 ## Referências não verificadas
 
-Nenhuma até agora. (As 3 aulas do módulo de demonstração não têm referências. Quando o Marco 2 entrar, cada referência nova só vale com link aberto e data em `verificado`; as que não puderem ser verificadas entram aqui com o id da aula.)
+Nenhuma. As 25 referências e os 3 itens de "Para aprofundar" do Módulo 0.0 foram abertos e conferidos em 2026-10-31. (Regra: cada referência nova só vale com link aberto e data em `verificado`; as que não puderem ser verificadas entram aqui com o id da aula.)
 
 ## Marco 1 (motor): decisões de interpretação que pedem sua aprovação
 
@@ -17,8 +17,8 @@ A especificação deixa estes pontos em aberto. Escolhi o mais simples e coerent
 5. **Sem arredondamento (decidido pelo aluno):** a aprovação usa a nota exata, então 6,96 não aprova. A tela mostra uma casa decimal truncada para baixo (6,96 aparece como 6,9), para que "7,0" na tela sempre signifique aprovado. O código só tolera 1e-9 de ruído de ponto flutuante nas contas.
 6. **Tarefa da aula:** não tem nota. A coluna do boletim mostra respondidas e objetivas certas. Objetiva respondida na tarefa trava (mostra o resultado na hora); o erro entra na fila de revisão.
 7. **Fila de revisão:** a questão sai da fila quando você acerta dentro da própria revisão, e não quando acerta por acaso numa prova.
-8. **Módulo em construção trava os seguintes.** Como o Módulo 0.0 real ainda não tem aulas, nenhum módulo real abre até o Marco 2.
-9. **Módulo de demonstração** (`content/modulo-demo/`): existe só para você testar o motor e não conta no progresso do curso. Deve ser apagado no Marco 2: apagar a pasta e tirar o módulo `demo` e os arquivos dele de `content/indice.js` (o `sw.js` lê a lista do índice sozinho). Os 9 termos que ele soma ao glossário podem ficar, pois descrevem a plataforma.
+8. **Módulo em construção trava os seguintes.** O Módulo 0.0 está completo; o módulo 1 abre quando a prova do 0.0 for aprovada, mas aparece como "em construção" até ter conteúdo.
+9. **Módulo de demonstração**: saiu do site no Marco 2 e foi movido para `tests/fixtures/modulo-demo/`, onde serve só aos testes automáticos. Os termos que ele somou ao glossário ficaram, porque descrevem a plataforma.
 
 ## Ainda não feito ou não verificado
 
@@ -26,5 +26,12 @@ A especificação deixa estes pontos em aberto. Escolhi o mais simples e coerent
 - **iPhone real:** os testes rodam em Chromium (celular e desktop simulados). Não testei em Safari/iPhone de verdade. Pontos a conferir no aparelho: baixar o backup (.json) e o caderno (.md), importar arquivo, botão de copiar para o Professor, armazenamento persistente (o Safari decide sozinho) e o modo offline depois de instalar na tela de início.
 - **Acessibilidade:** foco visível, contraste e alvos de toque de 44 px foram cuidados e os alvos da barra de navegação são testados, mas não houve auditoria com leitor de tela.
 - **Atualização do app:** o `sw.js` serve do cache e atualiza em segundo plano, então a versão nova aparece na segunda abertura depois de publicar (como já era antes).
-- **Material anterior** (`content/legado.js`): continua acessível em Mais e no Curso, com o progresso antigo. Sai no Marco 2, quando o Módulo 0.0 novo substituir as lições antigas. Antes de apagar, confirmar com o aluno.
+- **Material anterior** (`content/legado.js`): continua acessível em Mais e no Curso, com o progresso antigo. O Módulo 0.0 novo já substitui as lições m0a a m0e. Retirar só depois de o aluno confirmar que não precisa mais dele.
 - **Graphify:** o servidor MCP estava desconectado nesta sessão (precisa de login no conector), então a busca foi feita com as ferramentas normais.
+
+## Marco 2 (Módulo 0.0): o que ficou por conferir
+
+- **Número de projetos:** a especificação fala em 7 projetos, mas o `CONTEXTO_PRIVADO.md` lista 8 nomes. O trabalho do módulo pede "todos os seus repositórios", sem fixar o número; o próprio aluno vai levantar a lista.
+- **Exercício prático da aula 5:** pede para abrir `https://api.github.com/users/pggcthymg7-rgb` no navegador. Não deu para abrir esse endereço de dentro do ambiente do Claude (a rede do ambiente bloqueia essa rota); é uma rota pública e documentada da API do GitHub, mas não foi testada aqui.
+- **Exercícios que dependem do aluno:** os práticos das aulas 2, 5, 8 e o trabalho pressupõem acesso aos repositórios dele no GitHub (inclusive privados, se ele os tornar privados) e ao painel da Render.
+- **iPhone real:** o Módulo 0.0 foi conferido em tela de celular simulada (Chromium), não no Safari do iPhone.

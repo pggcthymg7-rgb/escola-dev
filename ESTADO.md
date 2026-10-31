@@ -5,7 +5,7 @@
 ## O que é
 Plataforma de estudo pessoal (apostila, tarefas, provas, glossário, revisão com cartões, painel com meta diária). Funciona offline como PWA, hospedada no GitHub Pages. A plataforma é uma ferramenta de apoio e não faz parte do currículo do aluno.
 
-## Arquitetura atual (Marco 1)
+## Arquitetura atual
 - `index.html`: só a casca (barra de navegação e `#app`). Sem etapa de build.
 - `css/app.css`: todos os estilos (tema claro e escuro, celular e desktop).
 - `js/registro.js`: registro do conteúdo (aulas, atividades, glossário, índice do curso). Roda no navegador, no service worker e no Node.
@@ -13,8 +13,9 @@ Plataforma de estudo pessoal (apostila, tarefas, provas, glossário, revisão co
 - `js/armazenamento.js`: salvar e carregar, migração de esquema, backup, caderno em Markdown.
 - `js/ui-base.js`, `ui-curso.js`, `ui-atividade.js`, `ui-extras.js`, `app.js`: telas e inicialização.
 - `js/jornada.js` (regras puras de pontos, níveis e medalhas, testadas em `tests/jornada.test.js`) e `js/ui-jornada.js` (cartão de nível no Início, tela "Sua jornada" e comemorações que não bloqueiam a tela). Os pontos são calculados a partir do progresso, sem campo novo para migrar; só `S.jv` guarda o que já foi comemorado.
-- `content/`: `indice.js` (módulos, blocos e lista de arquivos carregados), `glossario.js`, `legado.js` (material da primeira versão), `modulo-demo/` (demonstração do motor), e no futuro `modulo-XX/aula-YY.js`.
-- `sw.js`: cache offline de tudo. Lê a lista de arquivos de `content/indice.js`. Versão atual do cache: `escola-dev-v8`, repetida em `VERSAO` no `js/registro.js` (aparece no rodapé do Início; o `verificar.sh` confere que as duas batem). Subir a versão a cada mudança de app ou de conteúdo.
+- `content/`: `indice.js` (módulos, blocos e lista de arquivos carregados), `glossario.js`, `legado.js` (material da primeira versão) e `modulo-00/` (Módulo 0.0: `aula-01.js` a `aula-08.js`, `teste-1.js`, `teste-2.js`, `trabalho.js`, `prova.js`). Os próximos módulos seguem o mesmo formato em `modulo-XX/`.
+- `tests/fixtures/`: o módulo de demonstração do motor, que saiu do site no Marco 2 e ficou só como material dos testes (`tests/fixtures/demo.js` o acrescenta ao índice durante os testes).
+- `sw.js`: cache offline de tudo. Lê a lista de arquivos de `content/indice.js`. Versão atual do cache: `escola-dev-v9`, repetida em `VERSAO` no `js/registro.js` (aparece no rodapé do Início; o `verificar.sh` confere que as duas batem). Subir a versão a cada mudança de app ou de conteúdo.
 - `tools/validar-conteudo.js` e `tools/verificar.sh`; `tests/`; `docs/ESQUEMA-CONTEUDO.md` (como escrever conteúdo) e `docs/PENDENCIAS.md`.
 - Progresso do aluno: `localStorage`, chave `escoladev`, esquema `v: 2`. Cópia do progresso antigo em `escoladev_v1_backup`. Nunca versionar progresso com dados pessoais.
 - Telas: Início, Curso (mapa, módulo, aula, tarefa, teste, trabalho, prova), Buscar, Termos (dicionário, cartões, fila de revisão), Dúvidas, Boletim, Mais (tema, backup, caderno, armazenamento, material anterior).
@@ -26,15 +27,16 @@ sh tools/verificar.sh rapido   # sem o teste de navegador
 ```
 
 ## Estado do Marco 1 (motor da escola)
-Pronto para sua aprovação. Itens da definição de pronto: liberação por regras (testada), tarefas, testes e provas respondidos na página com salvamento automático, dissertativas com resposta-modelo, critérios, autoavaliação e botão de revisão, boletim, caderno de dúvidas, anotações por aula e busca, backup (exportar e importar), lembrete de 7 dias e armazenamento persistente, offline inclusive provas, migração do progresso antigo sem perda, validador e testes passando, conferido em celular e desktop (Chromium). Pontos que pedem sua decisão ou conferência no iPhone: `docs/PENDENCIAS.md`.
+Aprovado pelo aluno em 31/10/2026 (testado no iPhone e no computador). Itens da definição de pronto: liberação por regras (testada), tarefas, testes e provas respondidos na página com salvamento automático, dissertativas com resposta-modelo, critérios, autoavaliação e botão de revisão, boletim, caderno de dúvidas, anotações por aula e busca, backup (exportar e importar), lembrete de 7 dias e armazenamento persistente, offline inclusive provas, migração do progresso antigo sem perda, validador e testes passando, conferido em celular e desktop (Chromium). Pontos que pedem sua decisão ou conferência no iPhone: `docs/PENDENCIAS.md`.
 
-**Não comece o conteúdo dos módulos (Marco 2) antes da aprovação do motor.**
+## Estado do Marco 2 (Módulo 0.0)
+Entregue para aprovação em 31/10/2026: 8 aulas com as 10 partes (cerca de 1.850 a 2.300 palavras cada), 25 referências verificadas (link aberto em 2026-10-31), tarefa por aula (7 ou 8 objetivas, 2 dissertativas e 1 exercício prático), resumo e termos no glossário; 2 testes de bloco (banco de 20 objetivas e 2 dissertativas cada, o dobro do sorteio), trabalho do módulo (mapa do ecossistema, roteiro de 7 passos e 4 dissertativas) e prova (banco de 40 objetivas e 8 dissertativas). Módulo de demonstração retirado do site.
 
 ## Estado do conteúdo
-- Módulos reais (0.0 a 10): todos "em construção", sem aulas. O Módulo 0.0 entra no Marco 2.
-- Módulo de demonstração do motor: 3 aulas, 1 teste de bloco, 1 trabalho e 1 prova (em `content/modulo-demo/`, a apagar no Marco 2).
-- Material anterior (primeira versão): 10 lições (m0a a m0e, p0, s1a, s1b, s2a, s2b), 7 tarefas, 6 perguntas de prova, trilha de 6 fases. A lição m0b foi aprofundada; m0c é o padrão de profundidade. Continua acessível e com progresso preservado.
-- Glossário: 85 termos.
+- Módulo 0.0 (Noções): completo. Aulas: 1 Software, sistema, app, site e página; 2 Código e linguagens; 3 Internet, web, cliente e servidor; 4 A viagem de um pedido (URL, DNS, HTTP, status); 5 API; 6 Onde o código mora (repositório, Git, GitHub); 7 Onde o sistema roda (hospedagem, deploy, ambientes); 8 Segredos (.env, variáveis de ambiente). A aula 5 (API) é o novo padrão de profundidade.
+- Módulos 1 a 10: "em construção". O módulo 1 (Computador e terminal) é o próximo.
+- Material anterior (primeira versão): 10 lições (m0a a m0e, p0, s1a, s1b, s2a, s2b), 7 tarefas, 6 perguntas de prova, trilha de 6 fases. Continua acessível, com progresso preservado. As lições m0a a m0e serviram de base para o Módulo 0.0 novo. Retirar o material anterior só com o aluno de acordo.
+- Glossário: 114 termos.
 
 ## Padrão de uma lição (obrigatório)
 1. O problema que o conceito resolve.
@@ -66,8 +68,8 @@ Regra: nunca assumir vocabulário. Todo termo técnico é explicado na primeira 
 Cada módulo termina com prova própria (nota mínima sugerida: 70%) e tarefas com critérios.
 
 ## Próximos passos
-1. Aprovação do Marco 1 e do visual lúdico pelo aluno: testar o módulo de demonstração no iPhone. Os pontos de `docs/PENDENCIAS.md` ficam como estão, por decisão do Claude Code (o aluno delegou a condução).
-2. Marco 2: Módulo 0.0 completo (8 aulas com as 10 partes, referências verificadas, tarefas, 2 testes de bloco, trabalho e prova com banco duplicado). Aproveitar o material anterior (m0a a m0e) como base. Remover o módulo de demonstração.
+1. Aprovação do Marco 2 pelo aluno: estudar a aula 1 do Módulo 0.0 e dizer se o nível, o tamanho e a linguagem estão bons, antes de o Claude Code escrever o módulo seguinte.
+2. Ativar o Professor (Projeto no claude.ai), agora que Marco 1 e Marco 2 existem (decisão 8 do `ESPECIFICACAO.md`).
 3. Marcos 3 em diante: um módulo por vez, na ordem da seção 7 do `ESPECIFICACAO.md`.
 
 ## Decisões
@@ -97,3 +99,4 @@ Cada módulo termina com prova própria (nota mínima sugerida: 70%) e tarefas c
 - 31/10/2026 (quarta sessão, continuação): com autorização do aluno, o Marco 1 foi publicado na `main`. O aluno definiu: secretaria e pendências de segurança não são prioridade (ele vai tirá-la do ar); a base do curso vem antes dos projetos; qualidade máxima, podendo acrescentar conteúdo ligado aos projetos; visual lúdico. Registrado em `docs/PASSAGEM.md`.
 - 31/10/2026 (quarta sessão, visual lúdico): nova paleta (verde-água e violeta, claro e escuro), botões com relevo, cartão de nível no Início (11 níveis, de Curioso a Vibe coder consciente, pontos e dias seguidos), tela "Sua jornada" com níveis, 16 medalhas e a tabela de pontos, mapa do curso como trilha de ilhas e comemoração com confete ao ganhar medalha ou subir de nível (desligada para quem pede menos movimento). A leitura das aulas continua em fundo calmo e fonte serifada. Testes: 8 novos da jornada e 2 passos novos de interface; `sh tools/verificar.sh` passou inteiro. Cache `escola-dev-v7`. Não testado em iPhone real.
 - 31/10/2026 (quarta sessão, ajuste do computador): o aluno confirmou que tudo funcionou no iPhone, mas não no computador. Teste no tamanho de tela de computador (Chromium) não achou erro; a causa provável é a cópia antiga guardada pelo navegador. Correções: a barra lateral vai até o fim da tela; o `sw.js` busca arquivos sempre frescos (sem a cópia de até 10 minutos do GitHub Pages), para nunca misturar versões; quando uma versão nova assume, a página salva e recarrega sozinha uma vez; número da versão no rodapé do Início (`VERSAO` em `js/registro.js`, conferida contra o `sw.js` pelo `verificar.sh`). Teste de atualização simulado (v8 para v9): a versão nova aparece na primeira abertura. Cache `escola-dev-v8`. Não testado no Safari do Mac.
+- 31/10/2026 (quarta sessão, Marco 2): Módulo 0.0 escrito do zero no padrão da especificação: 8 aulas, 2 testes de bloco, trabalho e prova, com 29 termos novos no glossário. Todas as referências foram abertas e conferidas na data (MDN, Pro Git, GitHub Docs, Twelve-Factor App, Render, Google AI, OWASP, Express, javascript.info, Eloquent JavaScript, CS50). Módulo de demonstração movido para `tests/fixtures/` (fora do site). Correções: o `verificar.sh` escondia falhas por causa do `| tail -1` e agora interrompe com erro; blocos de código das aulas quebram a linha no celular. Novo passo de interface que abre o Módulo 0.0 real (32 passos). Cache `escola-dev-v9`. Não testado no iPhone real.

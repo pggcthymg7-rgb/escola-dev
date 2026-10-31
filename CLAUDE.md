@@ -35,7 +35,7 @@ A plataforma é ferramenta de apoio e não faz parte do currículo, então não 
 
 ## Padrão obrigatório de uma lição
 
-A lição `m0c` (API), dentro do `index.html`, é o padrão de profundidade. Toda lição nova segue estas 10 partes:
+A aula 5 do Módulo 0.0 (API), em `content/modulo-00/aula-05.js`, é o padrão de profundidade. Toda lição nova segue estas 10 partes:
 
 1. O problema que o conceito resolve.
 2. Definição, significado da sigla e analogia.
