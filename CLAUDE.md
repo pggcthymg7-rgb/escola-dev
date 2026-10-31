@@ -56,12 +56,22 @@ Dentro do `index.html`:
 
 ## Ferramentas autorizadas (Graphify e skills caveman)
 
-- O dono autorizou o uso permanente do Graphify (servidor MCP) e das skills do pacote `caveman`, em todas as sessões deste repositório. Não precisa pedir permissão a cada uso. A lista liberada está em `.claude/settings.json`.
-- Ainda assim, antes de rodar uma skill que altera arquivos ou envia texto para fora (`caveman-setup`, `caveman-compress`, `caveman-learn`), avise o que vai mudar.
-- Nunca escolha um repositório do Graphify sozinho: pergunte qual usar.
-- O ambiente na nuvem começa limpo a cada sessão. Se o servidor ou as skills não existirem, reinstale:
-  - `claude mcp add --transport http --scope local graphify https://api.graphify.com/mcp` (o login OAuth é feito pelo conector em https://claude.ai/customize/connectors);
-  - `npx skills add JuliusBrussee/caveman -g`.
+O dono autorizou o uso permanente do Graphify (servidor MCP) e das skills do pacote `caveman`, em todas as sessões deste repositório. A lista liberada está em `.claude/settings.json`.
+
+### Auto-instalação no início da sessão
+
+O ambiente na nuvem começa limpo a cada sessão. No início de toda sessão, antes de qualquer tarefa, confira e instale o que faltar:
+
+1. Skills caveman: se `~/.claude/skills/caveman` não existir, rode `npx skills add JuliusBrussee/caveman -g -y`.
+2. Graphify: se `claude mcp get graphify` não mostrar o servidor, rode `claude mcp add --transport http --scope local graphify https://api.graphify.com/mcp`. O login (OAuth) é feito pelo dono no conector em https://claude.ai/customize/connectors, e a sessão precisa ser nova para enxergar o conector. Se o login ainda estiver pendente, avise o dono e siga a tarefa sem o Graphify.
+3. Não coloque chaves nem tokens no repositório.
+
+### Regras de uso
+
+- Repositório do Graphify: `pggcthymg7-rgb/escola-dev`, já confirmado pelo dono. Para qualquer outro repositório, pergunte antes.
+- Use o Graphify antes de buscar arquivos ou responder dúvidas sobre o código (`query_graph`, `graphify_find`, `graphify_rank_files`). Só depois recorra a `Grep`, `Glob` ou `Read`. O índice é de um commit antigo e não cobre o `index.html` (o app é uma página só, sem módulos), então para o conteúdo do `index.html` use `Grep`/`Read` como complemento.
+- Responda no modo caveman por padrão (use `ultracave` quando o dono pedir ou o assunto for muito longo). O modo vale para o chat, em português do Brasil. Texto gravado no repositório (lições, commits, documentos, `ESTADO.md`) continua em português normal e completo. As lições da formação seguem o padrão de 10 partes e nunca usam linguagem telegráfica.
+- Antes de rodar uma skill que altera arquivos ou envia texto para fora (`caveman-setup`, `caveman-compress`, `caveman-learn`), avise o que vai mudar.
 
 ## Idioma
 
