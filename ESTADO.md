@@ -12,8 +12,9 @@ Plataforma de estudo pessoal (apostila, tarefas, provas, glossário, revisão co
 - `js/motor.js`: regras puras: liberação, notas, sorteio, fila de revisão, média do módulo.
 - `js/armazenamento.js`: salvar e carregar, migração de esquema, backup, caderno em Markdown.
 - `js/ui-base.js`, `ui-curso.js`, `ui-atividade.js`, `ui-extras.js`, `app.js`: telas e inicialização.
+- `js/jornada.js` (regras puras de pontos, níveis e medalhas, testadas em `tests/jornada.test.js`) e `js/ui-jornada.js` (cartão de nível no Início, tela "Sua jornada" e comemorações que não bloqueiam a tela). Os pontos são calculados a partir do progresso, sem campo novo para migrar; só `S.jv` guarda o que já foi comemorado.
 - `content/`: `indice.js` (módulos, blocos e lista de arquivos carregados), `glossario.js`, `legado.js` (material da primeira versão), `modulo-demo/` (demonstração do motor), e no futuro `modulo-XX/aula-YY.js`.
-- `sw.js`: cache offline de tudo. Lê a lista de arquivos de `content/indice.js`. Versão atual do cache: `escola-dev-v6`. Subir a versão a cada mudança de app ou de conteúdo.
+- `sw.js`: cache offline de tudo. Lê a lista de arquivos de `content/indice.js`. Versão atual do cache: `escola-dev-v7`. Subir a versão a cada mudança de app ou de conteúdo.
 - `tools/validar-conteudo.js` e `tools/verificar.sh`; `tests/`; `docs/ESQUEMA-CONTEUDO.md` (como escrever conteúdo) e `docs/PENDENCIAS.md`.
 - Progresso do aluno: `localStorage`, chave `escoladev`, esquema `v: 2`. Cópia do progresso antigo em `escoladev_v1_backup`. Nunca versionar progresso com dados pessoais.
 - Telas: Início, Curso (mapa, módulo, aula, tarefa, teste, trabalho, prova), Buscar, Termos (dicionário, cartões, fila de revisão), Dúvidas, Boletim, Mais (tema, backup, caderno, armazenamento, material anterior).
@@ -65,10 +66,9 @@ Regra: nunca assumir vocabulário. Todo termo técnico é explicado na primeira 
 Cada módulo termina com prova própria (nota mínima sugerida: 70%) e tarefas com critérios.
 
 ## Próximos passos
-1. Visual lúdico (pedido do aluno): deixar a jornada prazerosa e não cansativa, mantendo a leitura confortável. Ver diretrizes em `docs/PASSAGEM.md`.
-2. Aprovação do Marco 1 pelo aluno: testar o módulo de demonstração no iPhone. Os pontos de `docs/PENDENCIAS.md` ficam como estão, por decisão do Claude Code (o aluno delegou a condução).
-3. Marco 2: Módulo 0.0 completo (8 aulas com as 10 partes, referências verificadas, tarefas, 2 testes de bloco, trabalho e prova com banco duplicado). Aproveitar o material anterior (m0a a m0e) como base. Remover o módulo de demonstração.
-4. Marcos 3 em diante: um módulo por vez, na ordem da seção 7 do `ESPECIFICACAO.md`.
+1. Aprovação do Marco 1 e do visual lúdico pelo aluno: testar o módulo de demonstração no iPhone. Os pontos de `docs/PENDENCIAS.md` ficam como estão, por decisão do Claude Code (o aluno delegou a condução).
+2. Marco 2: Módulo 0.0 completo (8 aulas com as 10 partes, referências verificadas, tarefas, 2 testes de bloco, trabalho e prova com banco duplicado). Aproveitar o material anterior (m0a a m0e) como base. Remover o módulo de demonstração.
+3. Marcos 3 em diante: um módulo por vez, na ordem da seção 7 do `ESPECIFICACAO.md`.
 
 ## Decisões
 (Copiadas da seção 11 do `ESPECIFICACAO.md`.)
@@ -95,3 +95,4 @@ Cada módulo termina com prova própria (nota mínima sugerida: 70%) e tarefas c
 - 31/10/2026 (terceira sessão, ajuste): a aprovação passou a usar a nota exata, sem arredondamento (6,96 não aprova). A tela mostra a nota com uma casa decimal truncada para baixo (6,96 aparece como 6,9). Cache `escola-dev-v6`. Testes do motor: 27. Pull request aberto da branch para a `main`, sem merge.
 - 31/10/2026 (quarta sessão): o aluno deixou de usar o chat de planejamento; o Claude Code passa a planejar, construir e verificar. Criado `docs/PASSAGEM.md` com o contexto do chat anterior. Seção "Como falar com o aluno" no `CLAUDE.md`, com as regras 1 a 4 e, a pedido do aluno, as regras 5 (o Claude Code conduz, tudo em linguagem comum) e 6 (segurança proporcional a uma plataforma de estudo pessoal). O Marco 1 foi juntado à branch `claude/hopeful-fermi-h97b2a`, sem conflito; `sh tools/verificar.sh` passou inteiro (validador, 27 + 17 + 20 testes, 29 passos de interface). Falta juntar essa branch na `main`.
 - 31/10/2026 (quarta sessão, continuação): com autorização do aluno, o Marco 1 foi publicado na `main`. O aluno definiu: secretaria e pendências de segurança não são prioridade (ele vai tirá-la do ar); a base do curso vem antes dos projetos; qualidade máxima, podendo acrescentar conteúdo ligado aos projetos; visual lúdico. Registrado em `docs/PASSAGEM.md`.
+- 31/10/2026 (quarta sessão, visual lúdico): nova paleta (verde-água e violeta, claro e escuro), botões com relevo, cartão de nível no Início (11 níveis, de Curioso a Vibe coder consciente, pontos e dias seguidos), tela "Sua jornada" com níveis, 16 medalhas e a tabela de pontos, mapa do curso como trilha de ilhas e comemoração com confete ao ganhar medalha ou subir de nível (desligada para quem pede menos movimento). A leitura das aulas continua em fundo calmo e fonte serifada. Testes: 8 novos da jornada e 2 passos novos de interface; `sh tools/verificar.sh` passou inteiro. Cache `escola-dev-v7`. Não testado em iPhone real.

@@ -27,7 +27,7 @@ Em 31/10/2026 o aluno deixou de usar o chat de planejamento separado. A partir d
 - A primeira versão da plataforma (lições, tarefas e prova antigas) está acessível em "Mais".
 - A plataforma está publicada em pggcthymg7-rgb.github.io/escola-dev, pelo GitHub Pages. O Professor existe como Projeto no claude.ai, ainda sem uso. As instruções dele estão na seção 10 do `ESPECIFICACAO.md`.
 - O aluno fará ao Professor perguntas de curiosidade, também fora do curso. É o esperado.
-- **Próxima ordem de trabalho:** o Marco 1 foi publicado na `main` em 31/10/2026 pelo Claude Code, com autorização do aluno. Agora: o Claude Code deixa o visual lúdico (ver abaixo); o aluno testa como aluno, inclusive no iPhone; depois o Claude Code começa o Marco 2 (Módulo 0.0 completo), verificando cada referência abrindo o link e registrando a data.
+- **Próxima ordem de trabalho:** o Marco 1 foi publicado na `main` em 31/10/2026 pelo Claude Code, com autorização do aluno. O visual lúdico foi entregue no mesmo dia. Agora: o aluno testa como aluno, inclusive no iPhone; depois o Claude Code começa o Marco 2 (Módulo 0.0 completo), verificando cada referência abrindo o link e registrando a data.
 
 ## Diretrizes do aluno para o curso (31/10/2026)
 
