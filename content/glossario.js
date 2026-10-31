@@ -85,5 +85,7 @@ Escola.glossario([
 ["Autoavaliação por critérios", "Forma de corrigir dissertativas sem servidor: você compara sua resposta com a resposta-modelo e marca os critérios que cumpriu. A nota é a soma dos critérios cumpridos."],
 ["Resposta-modelo e critérios", "Exemplo de boa resposta e lista de itens que a resposta deve ter. Aparecem depois que você envia a sua."],
 ["Fila de revisão", "Lista das questões objetivas que você errou, para treinar até acertar."],
-["Caderno de dúvidas", "Lugar para anotar qualquer pergunta, ligada ou não ao curso, com status de aberta ou respondida."]
+["Caderno de dúvidas", "Lugar para anotar qualquer pergunta, ligada ou não ao curso, com status de aberta ou respondida."],
+["Hardware","A parte física de um aparelho: tela, processador, memória, cabos. É o que se pode tocar. O contrário de software."],
+["Sistema operacional","O programa que administra o hardware e deixa os outros programas rodarem, como o iOS no iPhone e o macOS no Mac."]
 ]);
