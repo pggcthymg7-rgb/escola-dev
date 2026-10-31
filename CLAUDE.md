@@ -60,7 +60,7 @@ O dono autorizou o uso permanente do Graphify (servidor MCP) e das skills do pac
 
 ### Auto-instalação no início da sessão
 
-O ambiente na nuvem começa limpo a cada sessão. No início de toda sessão, antes de qualquer tarefa, confira e instale o que faltar:
+O ambiente na nuvem começa limpo a cada sessão. O hook `.claude/hooks/instalar-ferramentas.sh` (configurado em `.claude/settings.json`, evento `SessionStart`) roda sozinho no início e faz os passos 1 e 2 abaixo. Se ele falhar, ou se a sessão não rodar hooks, faça os passos à mão antes de qualquer tarefa:
 
 1. Skills caveman: se `~/.claude/skills/caveman` não existir, rode `npx skills add JuliusBrussee/caveman -g -y`.
 2. Graphify: se `claude mcp get graphify` não mostrar o servidor, rode `claude mcp add --transport http --scope local graphify https://api.graphify.com/mcp`. O login (OAuth) é feito pelo dono no conector em https://claude.ai/customize/connectors, e a sessão precisa ser nova para enxergar o conector. Se o login ainda estiver pendente, avise o dono e siga a tarefa sem o Graphify.
