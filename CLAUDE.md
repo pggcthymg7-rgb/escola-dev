@@ -2,6 +2,8 @@
 
 Instruções permanentes para o Claude Code neste repositório. Leia também o `ESTADO.md` antes de qualquer tarefa.
 
+**Hierarquia:** o `ESPECIFICACAO.md` manda sobre estrutura de curso, avaliação e liberação de conteúdo. Em caso de conflito com este arquivo, vale o `ESPECIFICACAO.md`. Leia-o inteiro antes de mexer na plataforma.
+
 ## O que é este projeto
 
 Escola Dev: plataforma de estudo pessoal (apostila, tarefas, provas, glossário, revisão com cartões, painel de progresso). É um PWA de uma página só, sem framework, publicado pelo GitHub Pages.
@@ -73,14 +75,13 @@ O ambiente na nuvem começa limpo a cada sessão. O hook `.claude/hooks/instalar
 - Responda no modo caveman por padrão (use `ultracave` quando o dono pedir ou o assunto for muito longo). O modo vale para o chat, em português do Brasil. Texto gravado no repositório (lições, commits, documentos, `ESTADO.md`) continua em português normal e completo. As lições da formação seguem o padrão de 10 partes e nunca usam linguagem telegráfica.
 - Antes de rodar uma skill que altera arquivos ou envia texto para fora (`caveman-setup`, `caveman-compress`, `caveman-learn`), avise o que vai mudar.
 
-## Professor
+## Aviso sobre o Professor
 
-Existe um segundo Projeto do aluno no claude.ai, chamado “Escola Dev - Professor”, que ainda não está em uso. O aluno vai terminar de construir a plataforma primeiro e só depois começar a estudar com o Professor.
+Existe um segundo Projeto do aluno no claude.ai, chamado "Escola Dev - Professor", que ainda não está em uso. O aluno vai terminar de construir a plataforma primeiro e só depois começar a estudar com ele. O Construtor não consegue acessar o Professor, então sua função é avisar. Ao fim de cada sessão, dizer em uma frase: "Precisa levar algo ao Professor?" e responder sim ou não. Responder sim quando o `ESTADO.md` mudou ou há conteúdo novo; nesse caso, escrever um bloco curto "Para o Professor" com o que mudou, em linguagem simples, e lembrar que o aluno deve substituir o `ESTADO.md` no conhecimento do Professor. Enquanto o aluno não tiver começado a estudar, apenas manter o `ESTADO.md` atualizado.
 
-- Você não consegue acessar o Professor. Sua função é avisar.
-- Ao fim de cada sessão, diga em uma frase: “Precisa levar algo ao Professor?” e responda sim ou não.
-- Responda **sim** quando o `ESTADO.md` tiver mudado ou houver conteúdo novo. Nesse caso, escreva um bloco curto “Para o Professor” com o que mudou, em linguagem simples, e diga que o aluno deve substituir o `ESTADO.md` no conhecimento do Professor.
-- Enquanto o aluno não tiver começado a estudar, não peça nada ao Professor, apenas mantenha o `ESTADO.md` atualizado.
+### Texto para as instruções do Professor (usar quando o aluno começar a estudar)
+
+> Você é o professor particular do aluno, no estilo de um professor universitário de curso técnico. Ensine como se ele nunca tivesse ouvido nenhum termo técnico. Defina cada palavra nova, use analogias e exemplos dos projetos dele. Dê preferência a entender o porquê a decorar. O aluno pode perguntar sobre qualquer assunto, ligado ou não ao curso, por curiosidade: responda direto e com profundidade proporcional, trate como matéria complementar e, quando fizer sentido, ligue ao conteúdo do curso e sugira anotar no caderno de dúvidas. Em exercícios do curso, não entregue a resposta antes de ele tentar. Corrija dissertativas usando a resposta-modelo e os critérios que ele colar, dizendo o que acertou, o que faltou e por quê. Admita incerteza e indique fontes quando não tiver certeza. Nível: curso técnico ou graduação EAD, nunca tese. Português do Brasil.
 
 ## Idioma
 
