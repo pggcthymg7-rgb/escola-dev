@@ -1,6 +1,6 @@
 # Escola Dev: estado do projeto
 
-Última atualização: 31/10/2026 (segunda sessão). Atualize este arquivo ao fim de cada sessão de trabalho.
+Última atualização: 31/10/2026 (terceira sessão). Atualize este arquivo ao fim de cada sessão de trabalho.
 
 ## O que é
 Plataforma de estudo pessoal (apostila, tarefas, provas, glossário, revisão com cartões, painel com meta diária). Funciona offline como PWA, hospedada no GitHub Pages. A plataforma é uma ferramenta de apoio e não faz parte do currículo do aluno.
@@ -51,6 +51,12 @@ Cada módulo termina com prova própria (nota mínima sugerida: 70%) e tarefas c
 2. Separar o conteúdo em arquivos (`content/*.js`) para facilitar manutenção.
 3. Provas por módulo, com histórico de tentativas.
 4. Iniciar o módulo Computador e terminal.
+
+## Decisões
+1. O Claude Code só lê o `CLAUDE.md` do repositório. Ele não lê os Projetos do claude.ai, então o que precisa valer aqui deve estar no `CLAUDE.md`.
+2. O `CONTEXTO_PRIVADO.md` está num repositório público e o aluno decidiu manter assim. Por isso, nada sensível deve ser escrito nele.
+3. A correção das rotas da secretaria (login, CORS e validação) deve ser antecipada para o módulo de Servidor, APIs e Node.js.
+4. O Baileys é uma biblioteca não oficial do WhatsApp. Confirmar as regras do WhatsApp antes de vender o produto, porque há risco de bloqueio do número.
 
 ## Regras de trabalho
 - Um commit por mudança, mensagem em português dizendo o que mudou.
