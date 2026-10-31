@@ -1,6 +1,6 @@
 importScripts('js/registro.js', 'content/indice.js');   // traz a lista de arquivos de conteúdo (Escola.curso.arquivos)
-const V='escola-dev-v6';
-const BASE=['./','index.html','manifest.json','icon-180.png','icon-192.png','icon-512.png','css/app.css','js/registro.js','js/motor.js','js/armazenamento.js','js/ui-base.js','js/ui-curso.js','js/ui-atividade.js','js/ui-extras.js','js/app.js','content/glossario.js','content/legado.js','content/indice.js'];
+const V='escola-dev-v7';
+const BASE=['./','index.html','manifest.json','icon-180.png','icon-192.png','icon-512.png','css/app.css','js/registro.js','js/motor.js','js/armazenamento.js','js/ui-base.js','js/ui-curso.js','js/ui-atividade.js','js/ui-extras.js','js/jornada.js','js/ui-jornada.js','js/app.js','content/glossario.js','content/legado.js','content/indice.js'];
 const FILES=BASE.concat(self.Escola.curso.arquivos||[]);
 self.addEventListener('install',e=>{e.waitUntil(caches.open(V).then(c=>c.addAll(FILES)));self.skipWaiting()});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(n=>n!==V).map(n=>caches.delete(n)))));self.clients.claim()});

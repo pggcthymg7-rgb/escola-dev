@@ -3,6 +3,7 @@
   const reg = Escola, M = EscolaMotor, Arm = EscolaArm, UI = window.UI, S = UI.S, esc = UI.esc, T = UI.telas, AC = UI.AC;
   const ICONE = { bloqueado: '🔒', disponivel: '○', andamento: '◐', concluido: '✓', construcao: '🛠' };
   const ROTULO = { bloqueado: 'Bloqueado', disponivel: 'Disponível', andamento: 'Em andamento', concluido: 'Concluído', construcao: 'Em construção' };
+  const ICONE_MOD = { demo: '🧪', m00: '🧭', m01: '💻', m02: '⚡', m03: '🎨', m04: '🛰️', m05: '🗄️', m06: '🌳', m07: '🚀', m08: '🛡️', m09: '🔬', m10: '🤖' };
   const PREFIXO = { aula: 'Aula', teste: 'Teste de bloco', trabalho: 'Trabalho do módulo', prova: 'Prova do módulo' };
 
   UI.est = estado => '<span class="est ' + estado + '" aria-hidden="true">' + ICONE[estado] + '</span>';
@@ -32,7 +33,7 @@
   /* ---------- início ---------- */
   T.home = () => {
     const c = UI.calc(), prog = M.progressoCurso(reg, S), fila = M.filaRevisao(reg, S).length;
-    let h = '<h1>Escola Dev</h1><p class="mu">Seu painel de estudo.</p>';
+    let h = '<h1>Escola Dev</h1><p class="mu">Sua jornada para virar um vibe coder consciente.</p>' + (UI.heroi ? UI.heroi() : '');
     if (UI.avisoCarga) h += '<div class="aviso" role="alert">' + esc(UI.avisoCarga) + '</div>';
     if (Arm.falhou) h += '<div class="aviso" role="alert"><b>Não consegui salvar.</b> O armazenamento deste navegador está cheio ou bloqueado. Faça um backup agora em Mais.</div>';
     if (Arm.precisaBackup(S)) h += '<div class="aviso"><b>Hora de fazer backup.</b> Faz ' + Arm.diasSemBackup(S) + ' dias desde o último. Seu progresso fica só neste aparelho. <button class="btn s" data-a="nav" data-i="mais">Ir para Backup</button></div>';
@@ -41,7 +42,7 @@
     const p = c.proximo || c.proximoDemo;
     if (p) {
       const demo = !c.proximo;
-      h += '<div class="card"><span class="pill w">Próximo passo' + (demo ? ' (demonstração)' : '') + '</span><h3>' + esc(PREFIXO[p.k] + (p.k === 'aula' ? ': ' + UI.tituloItem(p) : '')) + '</h3><p class="mu">' + esc(subtitulo(p)) + '</p><button class="btn s" data-a="abrir" data-i="' + p.k + ':' + p.id + '">' + (p.estado === 'andamento' ? 'Continuar' : 'Começar') + '</button></div>';
+      h += '<div class="card destaque"><span class="pill w">Próximo passo' + (demo ? ' (demonstração)' : '') + '</span><h3>' + esc(PREFIXO[p.k] + (p.k === 'aula' ? ': ' + UI.tituloItem(p) : '')) + '</h3><p class="mu">' + esc(subtitulo(p)) + '</p><button class="btn s" data-a="abrir" data-i="' + p.k + ':' + p.id + '">' + (p.estado === 'andamento' ? 'Continuar' : 'Começar') + '</button></div>';
     }
     const reais = c.modulos.filter(m => !m.demo);
     const atual = reais.find(m => m.itens.length && m.estado !== 'concluido');
@@ -60,7 +61,8 @@
   /* ---------- mapa do curso ---------- */
   T.curso = () => {
     const c = UI.calc();
-    let h = '<h1>Curso</h1><p class="mu">Cada passo abre quando você domina o anterior. Itens com cadeado dizem o que falta.</p>';
+    let h = '<h1>Mapa do curso</h1><p class="mu">Cada ilha abre quando você domina a anterior. Ilhas com cadeado dizem o que falta.</p>';
+    const parada = m => '<div class="parada ' + m.estado + '"><span class="marco" aria-hidden="true">' + (m.estado === 'concluido' ? '🏁' : m.estado === 'bloqueado' ? '🔒' : m.estado === 'construcao' ? '🛠️' : (ICONE_MOD[m.id] || '📘')) + '</span>' + card(m) + '</div>';
     const card = m => {
       const mod = reg.modulo(m.id), pronto = m.itens.length > 0;
       const conteudo = '<div class="row sp"><b>' + esc(m.titulo) + '</b>' + UI.pill(m.estado) + '</div>' +
@@ -70,8 +72,8 @@
       return pronto ? '<button class="card item" data-a="modulo" data-i="' + m.id + '">' + conteudo + '</button>' : '<div class="card">' + conteudo + '</div>';
     };
     const demo = c.modulos.find(m => m.demo);
-    if (demo) h += '<h2>Teste o motor</h2>' + card(demo);
-    h += '<h2>Módulos</h2>' + c.modulos.filter(m => !m.demo).map(card).join('');
+    if (demo) h += '<h2>Teste o motor</h2><div class="mapa">' + parada(demo) + '</div>';
+    h += '<h2>A trilha</h2><div class="mapa">' + c.modulos.filter(m => !m.demo).map(parada).join('') + '<div class="parada fim"><span class="marco" aria-hidden="true">🚀</span><div class="card"><b>Vibe coder consciente</b><div class="mu">O fim da trilha: você entende, define, pede, confere e audita o que constrói.</div></div></div></div>';
     h += '<h2>Material anterior</h2><button class="card item" data-a="nav" data-i="leg"><b>Lições, tarefas e prova da primeira versão</b><div class="mu">Continuam abertas até o Módulo 0.0 novo entrar.</div></button>';
     return h;
   };

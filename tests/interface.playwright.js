@@ -145,6 +145,17 @@ const ANTIGO = { done: { m0a: true, f0: true }, tasks: { t1: { s: 2, n: 'minha n
   await passo('progresso do curso não conta o módulo de demonstração', async () => {
     await ir(p, 'home'); assert.match(await p.textContent('#app'), /Progresso do curso[\s\S]*0%/);
   });
+  await passo('jornada: o início mostra nível e pontos, e a demonstração aprovada rende medalhas', async () => {
+    const t = await p.textContent('#app'); assert.match(t, /Nível \d+ · /); assert.match(t, /\d+ pontos/);
+    await p.click('[data-a=nav][data-i=conq]'); assert.strictEqual(await h1(p), 'Sua jornada');
+    const ganhas = await p.locator('.med.ok').count(); assert.ok(ganhas >= 4, 'medalhas ganhas: ' + ganhas);
+    assert.ok((await estado(p)).jv, 'o registro das comemorações não foi salvo');
+    assert.ok(!(await rolagemHorizontal(p)));
+  });
+  await passo('mapa do curso aparece como trilha, com um marco por módulo', async () => {
+    await ir(p, 'curso'); assert.strictEqual(await h1(p), 'Mapa do curso');
+    assert.strictEqual(await p.locator('.mapa .parada').count(), 13); assert.ok(!(await rolagemHorizontal(p)));
+  });
   await passo('fila de revisão: erro sai da fila ao acertar', async () => {
     await ir(p, 'gls'); await p.click('[data-a=nav][data-i=rev]'); assert.match(await h1(p), /Fila de revisão/);
     const antes = (await p.textContent('#app')).match(/(\d+) na fila/)[1];

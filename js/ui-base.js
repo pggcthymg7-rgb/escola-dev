@@ -36,7 +36,7 @@
 
   /* ---- navegação ---- */
   const NAV = [['home', '🏠', 'Início'], ['curso', '🗺️', 'Curso'], ['busca', '🔎', 'Buscar'], ['gls', '📚', 'Termos'], ['duv', '💭', 'Dúvidas'], ['bol', '📊', 'Boletim'], ['mais', '⚙️', 'Mais']];
-  const SECAO = { aula: 'curso', mod: 'curso', tarefa: 'curso', ativ: 'curso', rev: 'gls', leg: 'mais' };
+  const SECAO = { aula: 'curso', mod: 'curso', tarefa: 'curso', ativ: 'curso', rev: 'gls', leg: 'mais', conq: 'home' };
   UI.nav = () => {
     const ativo = SECAO[U.v] || U.v;
     document.getElementById('nav').innerHTML = NAV.map(n => '<button data-a="nav" data-i="' + n[0] + '" class="' + (ativo === n[0] ? 'on' : '') + '" aria-label="' + n[2] + '"' + (ativo === n[0] ? ' aria-current="page"' : '') + '><span aria-hidden="true">' + n[1] + '</span>' + n[2] + '</button>').join('');
