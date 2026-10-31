@@ -8,7 +8,7 @@ Instruções permanentes para o Claude Code neste repositório. Leia também o `
 
 Escola Dev: plataforma de estudo pessoal (apostila, tarefas, provas, glossário, revisão com cartões, painel de progresso). É um PWA de uma página só, sem framework, publicado pelo GitHub Pages.
 
-Arquivos: `index.html` (todo o app), `manifest.json`, `sw.js`, `icon-180.png`, `icon-192.png`, `icon-512.png`, `ESTADO.md`.
+Arquivos: `index.html` (casca), `css/`, `js/` (motor e telas), `content/` (conteúdo do curso e glossário), `tools/` (validador), `tests/`, `docs/`, `manifest.json`, `sw.js`, ícones, `ESTADO.md`, `ESPECIFICACAO.md`. O mapa completo está no `ESTADO.md`.
 
 ## Sobre o aluno
 
@@ -39,20 +39,17 @@ A lição `m0c` (API), dentro do `index.html`, é o padrão de profundidade. Tod
 
 ## Onde mexer no código
 
-Dentro do `index.html`:
-
-- `L` = lições. Campos: `id`, `m` (módulo), `t` (título), `min` (minutos), `b` (corpo em HTML).
-- `T` = tarefas. Campos: `id`, `t`, `d`.
-- `Q` = perguntas de prova. Campos: `q`, `o` (opções), `a` (índice da correta), `e` (explicação).
-- `P` = trilha de fases.
-- `G` = glossário, ordenado automaticamente.
+- Conteúdo do curso: `content/` (índice em `content/indice.js`, aulas e atividades em `content/modulo-XX/`). O esquema está em `docs/ESQUEMA-CONTEUDO.md` e é conferido por `node tools/validar-conteudo.js`.
+- Glossário: `content/glossario.js`. Toda aula lista na parte 10 os termos novos, e eles precisam existir aqui.
+- Regras de liberação e notas: `js/motor.js`. Telas: `js/ui-*.js`. Estilos: `css/app.css`.
+- Material da primeira versão (lições `L`, tarefas `T`, prova `Q`, trilha `P`): `content/legado.js`, a ser substituído no Marco 2.
 
 ## Regras de trabalho
 
 - Um commit por mudança, mensagem em português dizendo o que mudou.
 - Nunca inclua segredos, chaves de API, tokens, telefones ou dados pessoais no repositório.
 - Ao alterar o app, aumente a versão do cache no `sw.js` (`escola-dev-v1` vira `escola-dev-v2`), senão o aparelho do aluno continua com a versão antiga.
-- Confira que a página abre e navega antes de considerar a tarefa pronta.
+- Confira que a página abre e navega antes de considerar a tarefa pronta: rode `sh tools/verificar.sh` (validador, testes e teste de navegador) antes de cada commit.
 - Ao fim de cada sessão, atualize o `ESTADO.md` e registre o que foi feito.
 - Antes de criar conteúdo novo, leia o último relatório em `docs/relatorios/`, se houver, e priorize as dúvidas e os erros registrados nele.
 
