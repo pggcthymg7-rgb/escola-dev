@@ -6,6 +6,7 @@ set -e
 echo "== Validador de conteúdo =="; node tools/validar-conteudo.js
 echo; echo "== Testes do motor ==";          node tests/motor.test.js | tail -1
 echo "== Testes do armazenamento ==";        node tests/armazenamento.test.js | tail -1
+echo "== Testes da jornada ==";             node tests/jornada.test.js | tail -1
 echo "== Testes do validador ==";            node tests/validador.test.js | tail -1
 if [ "$1" != "rapido" ]; then echo "== Teste da interface (celular e desktop) =="; node tests/interface.playwright.js | tail -1; fi
 echo; echo "Tudo passou."
