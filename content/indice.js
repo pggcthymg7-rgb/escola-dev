@@ -6,7 +6,13 @@
    "id": "m00",
    "titulo": "0.0 Noções",
    "metaAulas": 8,
-   "trabalhoPrevisto": "Mapa do ecossistema dos 7 projetos do aluno"
+   "trabalhoPrevisto": "Mapa do ecossistema dos seus projetos",
+   "blocos": [
+    { "id": "m00-b1", "aulas": ["m00-a01", "m00-a02", "m00-a03", "m00-a04"], "teste": "m00-teste1" },
+    { "id": "m00-b2", "aulas": ["m00-a05", "m00-a06", "m00-a07", "m00-a08"], "teste": "m00-teste2" }
+   ],
+   "trabalho": "m00-trabalho",
+   "prova": "m00-prova"
   },
   {
    "id": "m01",
@@ -89,6 +95,18 @@
   }
  ],
  "arquivos": [
+  "content/modulo-00/aula-01.js",
+  "content/modulo-00/aula-02.js",
+  "content/modulo-00/aula-03.js",
+  "content/modulo-00/aula-04.js",
+  "content/modulo-00/aula-05.js",
+  "content/modulo-00/aula-06.js",
+  "content/modulo-00/aula-07.js",
+  "content/modulo-00/aula-08.js",
+  "content/modulo-00/teste-1.js",
+  "content/modulo-00/teste-2.js",
+  "content/modulo-00/trabalho.js",
+  "content/modulo-00/prova.js",
   "content/modulo-demo/aula-01.js",
   "content/modulo-demo/aula-02.js",
   "content/modulo-demo/aula-03.js",
