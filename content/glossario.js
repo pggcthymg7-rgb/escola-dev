@@ -105,5 +105,11 @@ Escola.glossario([
 ["Push e pull","Push envia commits do seu computador para o repositório remoto (GitHub); pull traz para o seu computador o que mudou no remoto."],
 ["Clone e fork","Clone é uma cópia de trabalho de um repositório, ligada ao original. Fork é uma cópia do repositório de outra pessoa para dentro da sua conta no GitHub."],
 [".gitignore","Arquivo com a lista do que o Git deve ignorar e nunca registrar, como a pasta node_modules ou o arquivo .env."],
-["Código aberto","Software cujo código-fonte é público e pode ser usado, estudado e, conforme a licença, modificado por qualquer pessoa. Ex.: Git, Node.js."]
+["Código aberto","Software cujo código-fonte é público e pode ser usado, estudado e, conforme a licença, modificado por qualquer pessoa. Ex.: Git, Node.js."],
+["Ambiente (local, teste, produção)","Lugar onde o sistema roda, com a sua própria configuração. Local é o seu computador; teste é uma cópia no ar com dados de mentira; produção é o sistema de verdade, usado pelas pessoas."],
+["Log","Registro das mensagens que um programa escreve enquanto roda (iniciei, recebi um pedido, deu erro). É a primeira coisa a olhar quando algo falha."],
+["Build","Etapa de construção de um deploy: baixar o código e as dependências e preparar tudo para rodar."],
+["Rollback","Voltar para a versão anterior que funcionava, depois de um deploy que deu problema."],
+["Nuvem (cloud)","Apelido para computadores de outras empresas, alugados sob demanda e acessados pela internet, sem que você saiba em qual máquina física o programa está."],
+["Data center","Prédio com muitos servidores, energia reserva, refrigeração e conexões rápidas, onde ficam as hospedagens."]
 ]);
