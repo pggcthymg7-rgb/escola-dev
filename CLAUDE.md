@@ -73,6 +73,15 @@ O ambiente na nuvem começa limpo a cada sessão. O hook `.claude/hooks/instalar
 - Responda no modo caveman por padrão (use `ultracave` quando o dono pedir ou o assunto for muito longo). O modo vale para o chat, em português do Brasil. Texto gravado no repositório (lições, commits, documentos, `ESTADO.md`) continua em português normal e completo. As lições da formação seguem o padrão de 10 partes e nunca usam linguagem telegráfica.
 - Antes de rodar uma skill que altera arquivos ou envia texto para fora (`caveman-setup`, `caveman-compress`, `caveman-learn`), avise o que vai mudar.
 
+## Professor
+
+Existe um segundo Projeto do aluno no claude.ai, chamado “Escola Dev - Professor”, que ainda não está em uso. O aluno vai terminar de construir a plataforma primeiro e só depois começar a estudar com o Professor.
+
+- Você não consegue acessar o Professor. Sua função é avisar.
+- Ao fim de cada sessão, diga em uma frase: “Precisa levar algo ao Professor?” e responda sim ou não.
+- Responda **sim** quando o `ESTADO.md` tiver mudado ou houver conteúdo novo. Nesse caso, escreva um bloco curto “Para o Professor” com o que mudou, em linguagem simples, e diga que o aluno deve substituir o `ESTADO.md` no conhecimento do Professor.
+- Enquanto o aluno não tiver começado a estudar, não peça nada ao Professor, apenas mantenha o `ESTADO.md` atualizado.
+
 ## Idioma
 
 Responda e escreva tudo em português do Brasil.
