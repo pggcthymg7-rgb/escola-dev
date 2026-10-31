@@ -59,7 +59,7 @@ A lição `m0c` (API), dentro do `index.html`, é o padrão de profundidade. Tod
 
 - Um commit por mudança, mensagem em português dizendo o que mudou.
 - Nunca inclua segredos, chaves de API, tokens, telefones ou dados pessoais no repositório.
-- Ao alterar o app, aumente a versão do cache no `sw.js` (`escola-dev-v1` vira `escola-dev-v2`), senão o aparelho do aluno continua com a versão antiga.
+- Ao alterar o app, aumente a versão do cache no `sw.js` (`escola-dev-v1` vira `escola-dev-v2`) e a `VERSAO` em `js/registro.js` com o mesmo número, senão o aparelho do aluno continua com a versão antiga.
 - Confira que a página abre e navega antes de considerar a tarefa pronta: rode `sh tools/verificar.sh` (validador, testes e teste de navegador) antes de cada commit.
 - Ao fim de cada sessão, atualize o `ESTADO.md` e registre o que foi feito.
 - Antes de criar conteúdo novo, leia o último relatório em `docs/relatorios/`, se houver, e priorize as dúvidas e os erros registrados nele.
