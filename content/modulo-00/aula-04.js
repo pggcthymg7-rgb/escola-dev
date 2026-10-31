@@ -19,7 +19,8 @@ Escola.aula({
 <p>Analogia geral: mandar uma carta. Você precisa do endereço completo (URL), de alguém que converta o nome da rua num CEP que os carteiros entendem (DNS), de um formato de carta que o destinatário saiba ler (HTTP) e de uma resposta que diga se o pedido foi atendido (código de status).</p>
 <h3>URL, o endereço</h3>
 <p><b>URL</b> é a sigla de <i>Uniform Resource Locator</i>, "localizador uniforme de recurso". É o endereço completo de algo na internet. Veja um exemplo e as partes:</p>
-<pre><code>https://loja.example.com:443/api/imoveis?cidade=Goiania&amp;quartos=3
+<p class="mu">Deslize o desenho para o lado se ele não couber na tela.</p>
+<pre class="fixo"><code>https://loja.example.com:443/api/imoveis?cidade=Goiania&amp;quartos=3
 |___|   |_______________| |_| |_________| |_____________________|
   |             |          |       |                 |
 protocolo    domínio     porta  caminho     parâmetros (query string)</code></pre>
