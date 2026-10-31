@@ -1,6 +1,6 @@
 # Escola Dev: estado do projeto
 
-Última atualização: 31/10/2026. Atualize este arquivo ao fim de cada sessão de trabalho.
+Última atualização: 31/10/2026 (segunda sessão). Atualize este arquivo ao fim de cada sessão de trabalho.
 
 ## O que é
 Plataforma de estudo pessoal (apostila, tarefas, provas, glossário, revisão com cartões, painel com meta diária). Funciona offline como PWA, hospedada no GitHub Pages. A plataforma é uma ferramenta de apoio e não faz parte do currículo do aluno.
@@ -10,12 +10,12 @@ Plataforma de estudo pessoal (apostila, tarefas, provas, glossário, revisão co
 - Dados do conteúdo, dentro do `index.html`: `L` (lições), `T` (tarefas), `Q` (perguntas da prova), `P` (trilha de fases), `G` (glossário, ordenado automaticamente).
 - Telas: home, apo (apostila), gls (termos e revisão), tar (tarefas), pro (provas), tri (trilha), mais (tema, exportar e importar progresso).
 - Progresso do aluno: `localStorage`, chave `escoladev`. Nunca versionar progresso com dados pessoais.
-- Atualização do app: ao publicar versão nova, aumentar `V` no `sw.js` (ex.: escola-dev-v2), senão o aparelho mantém a versão antiga.
+- Atualização do app: ao publicar versão nova, aumentar `V` no `sw.js` (versão atual: escola-dev-v2), senão o aparelho mantém a versão antiga.
 
 ## Estado do conteúdo
 - 10 lições: m0a, m0b, m0c, m0d, m0e (Módulo 0.0), p0 (Passo 0), s1a, s1b, s2a, s2b.
-- 7 tarefas, 6 perguntas de prova, cerca de 55 termos.
-- **Padrão de profundidade:** a lição m0c (API). As lições m0a, m0b, m0d e m0e ainda estão rasas e devem ser aprofundadas nesse nível.
+- 7 tarefas, 6 perguntas de prova, 76 termos.
+- **Padrão de profundidade:** a lição m0c (API). A lição m0b (cliente e servidor) já foi aprofundada nesse nível. As lições m0a, m0d e m0e ainda estão rasas e devem ser aprofundadas nesse nível.
 
 ## Padrão de uma lição (obrigatório)
 1. O problema que o conceito resolve.
@@ -47,7 +47,7 @@ Regra: nunca assumir vocabulário. Todo termo técnico é explicado na primeira 
 Cada módulo termina com prova própria (nota mínima sugerida: 70%) e tarefas com critérios.
 
 ## Próximos passos
-1. Aprofundar m0b (cliente e servidor), depois m0d, m0e e m0a.
+1. Aprofundar m0d, m0e e m0a, nessa ordem.
 2. Separar o conteúdo em arquivos (`content/*.js`) para facilitar manutenção.
 3. Provas por módulo, com histórico de tentativas.
 4. Iniciar o módulo Computador e terminal.
@@ -59,3 +59,4 @@ Cada módulo termina com prova própria (nota mínima sugerida: 70%) e tarefas c
 
 ## Registro de sessões
 - 31/10/2026: plataforma v0 criada, Módulo 0.0 iniciado, lição de API aprofundada, pacote PWA gerado e publicado.
+- 31/10/2026 (segunda sessão): lição m0b aprofundada nas 10 partes (URL, DNS, TLS, cabeçalhos, status, sem estado, estático e dinâmico, exemplos dos projetos, exercício com critérios). 16 termos novos no glossário. Cache do sw.js passou para escola-dev-v2. Página conferida no navegador sem erros. Não havia relatório em docs/relatorios/.
