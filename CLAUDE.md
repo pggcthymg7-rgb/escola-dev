@@ -54,6 +54,15 @@ Dentro do `index.html`:
 - Ao fim de cada sessão, atualize o `ESTADO.md` e registre o que foi feito.
 - Antes de criar conteúdo novo, leia o último relatório em `docs/relatorios/`, se houver, e priorize as dúvidas e os erros registrados nele.
 
+## Ferramentas autorizadas (Graphify e skills caveman)
+
+- O dono autorizou o uso permanente do Graphify (servidor MCP) e das skills do pacote `caveman`, em todas as sessões deste repositório. Não precisa pedir permissão a cada uso. A lista liberada está em `.claude/settings.json`.
+- Ainda assim, antes de rodar uma skill que altera arquivos ou envia texto para fora (`caveman-setup`, `caveman-compress`, `caveman-learn`), avise o que vai mudar.
+- Nunca escolha um repositório do Graphify sozinho: pergunte qual usar.
+- O ambiente na nuvem começa limpo a cada sessão. Se o servidor ou as skills não existirem, reinstale:
+  - `claude mcp add --transport http --scope local graphify https://api.graphify.com/mcp` (o login OAuth é feito pelo conector em https://claude.ai/customize/connectors);
+  - `npx skills add JuliusBrussee/caveman -g`.
+
 ## Idioma
 
 Responda e escreva tudo em português do Brasil.
