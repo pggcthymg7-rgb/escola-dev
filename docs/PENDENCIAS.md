@@ -14,7 +14,7 @@ A especificação deixa estes pontos em aberto. Escolhi o mais simples e coerent
 2. **Nota de teste de bloco:** objetivas 60% e dissertativas 40%, a mesma regra da prova. A especificação só fixa esses pesos para a prova.
 3. **Nota de trabalho:** média das dissertativas, cada uma pela fração de critérios cumpridos.
 4. **Várias tentativas:** vale a **melhor** nota de cada atividade, no boletim, na média e na liberação.
-5. **Arredondamento:** a nota é arredondada para uma casa (6,96 vira 7,0 e aprova), igual ao que aparece na tela.
+5. **Sem arredondamento (decidido pelo aluno):** a aprovação usa a nota exata, então 6,96 não aprova. A tela mostra uma casa decimal truncada para baixo (6,96 aparece como 6,9), para que "7,0" na tela sempre signifique aprovado. O código só tolera 1e-9 de ruído de ponto flutuante nas contas.
 6. **Tarefa da aula:** não tem nota. A coluna do boletim mostra respondidas e objetivas certas. Objetiva respondida na tarefa trava (mostra o resultado na hora); o erro entra na fila de revisão.
 7. **Fila de revisão:** a questão sai da fila quando você acerta dentro da própria revisão, e não quando acerta por acaso numa prova.
 8. **Módulo em construção trava os seguintes.** Como o Módulo 0.0 real ainda não tem aulas, nenhum módulo real abre até o Marco 2.

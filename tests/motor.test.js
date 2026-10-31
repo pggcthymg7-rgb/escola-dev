@@ -95,8 +95,18 @@ teste('progresso do curso conta itens concluídos', () => {
 });
 
 console.log('Notas');
-teste('aprovação com 7,0 e arredondamento de uma casa', () => {
-  assert.ok(M.aprovada(7)); assert.ok(M.aprovada(7.04)); assert.ok(!M.aprovada(6.94)); assert.ok(M.aprovada(6.96)); assert.ok(!M.aprovada(null));
+teste('aprovação com 7,0 ou mais, sem arredondamento: 6,96 não aprova', () => {
+  assert.ok(M.aprovada(7)); assert.ok(M.aprovada(7.04)); assert.ok(M.aprovada(10)); assert.ok(!M.aprovada(6.94));
+  assert.ok(!M.aprovada(6.96)); assert.ok(!M.aprovada(6.999)); assert.ok(!M.aprovada(null)); assert.ok(!M.aprovada(0));
+});
+teste('ruído de ponto flutuante não reprova quem tirou 7,0 de verdade', () => {
+  [6.999999999999999, 0.07 * 100, 0.7 * 10, 4.2 + 2.8, 0.6 * 7 + 0.4 * 7].forEach(n => assert.ok(M.aprovada(n), 'devia aprovar ' + n));
+  assert.strictEqual(M.fmt(6.999999999999999), '7,0');
+});
+teste('exibição trunca para baixo com uma casa (6,96 aparece como 6,9)', () => {
+  assert.strictEqual(M.fmt(6.96), '6,9'); assert.strictEqual(M.fmt(6.999), '6,9'); assert.strictEqual(M.fmt(7), '7,0'); assert.strictEqual(M.fmt(7.04), '7,0');
+  assert.strictEqual(M.fmt(10), '10,0'); assert.strictEqual(M.fmt(0), '0,0'); assert.strictEqual(M.fmt(null), '—'); assert.strictEqual(M.fmt(4.2 + 2.8), '7,0');
+  for (const n of [0, 3.33, 6.9, 6.96, 7, 7.5, 9.99, 10]) assert.strictEqual(M.aprovada(n), parseFloat(M.fmt(n).replace(',', '.')) >= 7, 'tela e decisão divergem em ' + n);
 });
 teste('nota de objetivas e de dissertativas', () => {
   assert.strictEqual(M.notaObj([{ ok: true }, { ok: true }, { ok: false }, { ok: true }]), 7.5);

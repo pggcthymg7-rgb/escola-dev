@@ -8,9 +8,13 @@
   M.PESO_MEDIA = { prova: 0.5, trabalho: 0.3, testes: 0.2 };
   M.PADRAO = { teste: { obj: 10, dis: 1 }, prova: { obj: 20, dis: 4 }, trabalho: { obj: 0, dis: Infinity } };
 
-  M.arred1 = n => Math.round(n * 10) / 10;
-  M.aprovada = nota => nota != null && M.arred1(nota) >= M.NOTA_MIN;
-  M.fmt = n => n == null ? '—' : M.arred1(n).toFixed(1).replace('.', ',');
+  // Sem arredondamento: 6,96 não aprova. A tolerância de 1e-9 só absorve o ruído de contas com decimais
+  // (por exemplo 0,6 x 10 + 0,4 x 10 pode dar 6,999999999999999); não muda nenhuma nota de verdade.
+  const EPS = 1e-9;
+  M.aprovada = nota => nota != null && nota >= M.NOTA_MIN - EPS;
+  // Exibição: uma casa decimal, truncada para baixo (6,96 aparece como 6,9). Assim "7,0" na tela sempre aprova.
+  M.trunc1 = n => Math.floor(n * 10 + EPS) / 10;
+  M.fmt = n => n == null ? '—' : M.trunc1(n).toFixed(1).replace('.', ',');
 
   const tem = (S, k) => (S[k] || {});
 
