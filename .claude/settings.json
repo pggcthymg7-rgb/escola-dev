@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__graphify",
+      "Skill(caveman)",
+      "Skill(cavecrew)",
+      "Skill(caveman-commit)",
+      "Skill(caveman-compress)",
+      "Skill(caveman-discover)",
+      "Skill(caveman-evidence-review)",
+      "Skill(caveman-explore)",
+      "Skill(caveman-help)",
+      "Skill(caveman-learn)",
+      "Skill(caveman-manage)",
+      "Skill(caveman-optimize)",
+      "Skill(caveman-review)",
+      "Skill(caveman-setup)",
+      "Skill(caveman-stats)",
+      "Skill(investigate-first)",
+      "Skill(lean-build)",
+      "Skill(megacave)",
+      "Skill(migration)",
+      "Skill(safe-refactor)",
+      "Skill(surgical-patch)",
+      "Skill(ultracave)",
+      "Skill(verify-and-stop)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash \"$CLAUDE_PROJECT_DIR/.claude/hooks/instalar-ferramentas.sh\"",
+            "timeout": 180
+          }
+        ]
+      }
+    ]
+  }
+}

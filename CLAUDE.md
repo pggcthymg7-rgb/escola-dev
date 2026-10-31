@@ -54,6 +54,25 @@ Dentro do `index.html`:
 - Ao fim de cada sessão, atualize o `ESTADO.md` e registre o que foi feito.
 - Antes de criar conteúdo novo, leia o último relatório em `docs/relatorios/`, se houver, e priorize as dúvidas e os erros registrados nele.
 
+## Ferramentas autorizadas (Graphify e skills caveman)
+
+O dono autorizou o uso permanente do Graphify (servidor MCP) e das skills do pacote `caveman`, em todas as sessões deste repositório. A lista liberada está em `.claude/settings.json`.
+
+### Auto-instalação no início da sessão
+
+O ambiente na nuvem começa limpo a cada sessão. O hook `.claude/hooks/instalar-ferramentas.sh` (configurado em `.claude/settings.json`, evento `SessionStart`) roda sozinho no início e faz os passos 1 e 2 abaixo. Se ele falhar, ou se a sessão não rodar hooks, faça os passos à mão antes de qualquer tarefa:
+
+1. Skills caveman: se `~/.claude/skills/caveman` não existir, rode `npx skills add JuliusBrussee/caveman -g -y`.
+2. Graphify: se `claude mcp get graphify` não mostrar o servidor, rode `claude mcp add --transport http --scope local graphify https://api.graphify.com/mcp`. O login (OAuth) é feito pelo dono no conector em https://claude.ai/customize/connectors, e a sessão precisa ser nova para enxergar o conector. Se o login ainda estiver pendente, avise o dono e siga a tarefa sem o Graphify.
+3. Não coloque chaves nem tokens no repositório.
+
+### Regras de uso
+
+- Repositório do Graphify: `pggcthymg7-rgb/escola-dev`, já confirmado pelo dono. Para qualquer outro repositório, pergunte antes.
+- Use o Graphify antes de buscar arquivos ou responder dúvidas sobre o código (`query_graph`, `graphify_find`, `graphify_rank_files`). Só depois recorra a `Grep`, `Glob` ou `Read`. O índice é de um commit antigo e não cobre o `index.html` (o app é uma página só, sem módulos), então para o conteúdo do `index.html` use `Grep`/`Read` como complemento.
+- Responda no modo caveman por padrão (use `ultracave` quando o dono pedir ou o assunto for muito longo). O modo vale para o chat, em português do Brasil. Texto gravado no repositório (lições, commits, documentos, `ESTADO.md`) continua em português normal e completo. As lições da formação seguem o padrão de 10 partes e nunca usam linguagem telegráfica.
+- Antes de rodar uma skill que altera arquivos ou envia texto para fora (`caveman-setup`, `caveman-compress`, `caveman-learn`), avise o que vai mudar.
+
 ## Idioma
 
 Responda e escreva tudo em português do Brasil.
