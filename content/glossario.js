@@ -111,5 +111,8 @@ Escola.glossario([
 ["Build","Etapa de construção de um deploy: baixar o código e as dependências e preparar tudo para rodar."],
 ["Rollback","Voltar para a versão anterior que funcionava, depois de um deploy que deu problema."],
 ["Nuvem (cloud)","Apelido para computadores de outras empresas, alugados sob demanda e acessados pela internet, sem que você saiba em qual máquina física o programa está."],
-["Data center","Prédio com muitos servidores, energia reserva, refrigeração e conexões rápidas, onde ficam as hospedagens."]
+["Data center","Prédio com muitos servidores, energia reserva, refrigeração e conexões rápidas, onde ficam as hospedagens."],
+["Segredo (credencial)","Qualquer informação que dá acesso a algo e permite agir em seu nome se vazar: senha, chave de API, token. Nunca vai para o código, o navegador, a URL ou conversas."],
+["Escaneamento de segredos","Recurso do GitHub (secret scanning) que procura credenciais conhecidas nos repositórios e avisa. Em repositórios públicos, roda de graça e automaticamente."],
+["Revogar","Cancelar um segredo no serviço que o emitiu, para que ele deixe de funcionar. É o primeiro passo quando uma chave vaza."]
 ]);
