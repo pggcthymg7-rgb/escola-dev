@@ -87,5 +87,13 @@ Escola.glossario([
 ["Fila de revisão", "Lista das questões objetivas que você errou, para treinar até acertar."],
 ["Caderno de dúvidas", "Lugar para anotar qualquer pergunta, ligada ou não ao curso, com status de aberta ou respondida."],
 ["Hardware","A parte física de um aparelho: tela, processador, memória, cabos. É o que se pode tocar. O contrário de software."],
-["Sistema operacional","O programa que administra o hardware e deixa os outros programas rodarem, como o iOS no iPhone e o macOS no Mac."]
+["Sistema operacional","O programa que administra o hardware e deixa os outros programas rodarem, como o iOS no iPhone e o macOS no Mac."],
+["Código-fonte","O texto original de um programa, escrito por pessoas (ou por IA) numa linguagem de programação e guardado em arquivos como .js, .html e .css."],
+["Sintaxe","As regras de escrita de uma linguagem de programação. Um sinal fora do lugar quebra a sintaxe e o programa para com erro."],
+["Variável","Um nome que guarda um valor, como uma etiqueta numa caixa. Ex.: const preco = 350000."],
+["Função","Um bloco de instruções com nome, que recebe valores (parâmetros), faz algo e pode devolver um resultado (return). Só roda quando é chamada."],
+["Comentário (no código)","Texto dentro do código que a máquina ignora, escrito só para pessoas. Em JavaScript, começa com // ou fica entre /* e */."],
+["Interpretador e compilador","Programas que fazem o código virar ação. O interpretador lê e executa na hora (JavaScript, Python); o compilador traduz tudo antes, gerando um executável (Swift, C)."],
+["Dependência","Código de outras pessoas (biblioteca ou framework) de que o seu projeto precisa para funcionar. Em Node.js, ficam listadas no package.json."],
+["npm","Node Package Manager: ferramenta que baixa e organiza as dependências de um projeto Node.js a partir da lista do package.json."]
 ]);
