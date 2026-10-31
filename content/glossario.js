@@ -96,5 +96,6 @@ Escola.glossario([
 ["Interpretador e compilador","Programas que fazem o código virar ação. O interpretador lê e executa na hora (JavaScript, Python); o compilador traduz tudo antes, gerando um executável (Swift, C)."],
 ["Dependência","Código de outras pessoas (biblioteca ou framework) de que o seu projeto precisa para funcionar. Em Node.js, ficam listadas no package.json."],
 ["npm","Node Package Manager: ferramenta que baixa e organiza as dependências de um projeto Node.js a partir da lista do package.json."],
-["Web","World Wide Web: o conjunto de páginas e serviços ligados por links que você abre num navegador. Funciona sobre a internet, mas não é a internet."]
+["Web","World Wide Web: o conjunto de páginas e serviços ligados por links que você abre num navegador. Funciona sobre a internet, mas não é a internet."],
+["fetch","Função do JavaScript (uma API do navegador, também disponível no Node.js) que faz uma requisição HTTP e devolve a resposta. Ex.: await fetch(endereço)."]
 ]);
