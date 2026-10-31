@@ -22,9 +22,16 @@ Em 31/10/2026 o aluno deixou de usar o chat de planejamento separado. A partir d
   4. revisar a chave do Gemini;
   5. fazer o mapa de hospedagem dos 7 projetos.
 
-  Pergunte sobre isso uma vez no início de cada sessão, em uma linha, até ele dizer que concluiu.
+  Atualização de 31/10/2026: o aluno disse que isso não é prioridade. Ele vai tirar a secretaria do ar até chegar à fase do curso em que consiga corrigi-la com consciência. **Não pergunte mais sobre estas pendências** no início das sessões; elas viram prática dentro dos módulos (Git, hospedagem, segurança).
 - O `CONTEXTO_PRIVADO.md` está num repositório público e o aluno decidiu manter assim.
 - A primeira versão da plataforma (lições, tarefas e prova antigas) está acessível em "Mais".
 - A plataforma está publicada em pggcthymg7-rgb.github.io/escola-dev, pelo GitHub Pages. O Professor existe como Projeto no claude.ai, ainda sem uso. As instruções dele estão na seção 10 do `ESPECIFICACAO.md`.
 - O aluno fará ao Professor perguntas de curiosidade, também fora do curso. É o esperado.
-- **Próxima ordem de trabalho:** o aluno junta o Marco 1 na `main` e testa como aluno (inclusive no iPhone); depois o Claude Code começa o Marco 2 (Módulo 0.0 completo), verificando cada referência abrindo o link e registrando a data.
+- **Próxima ordem de trabalho:** o Marco 1 foi publicado na `main` em 31/10/2026 pelo Claude Code, com autorização do aluno. Agora: o Claude Code deixa o visual lúdico (ver abaixo); o aluno testa como aluno, inclusive no iPhone; depois o Claude Code começa o Marco 2 (Módulo 0.0 completo), verificando cada referência abrindo o link e registrando a data.
+
+## Diretrizes do aluno para o curso (31/10/2026)
+
+- **Prioridade é a base, não os projetos.** Os projetos do GitHub são ideias e testes pessoais. Eles não precisam estar corretos agora e não passam na frente do conteúdo do curso. Servem como exemplos e como lugar para aplicar o que foi aprendido, no momento certo de cada módulo.
+- **Qualidade máxima.** Tratar o aluno como aplicado, que quer pôr em prática para melhorar o mundo. Sem pressa nem urgência de produto. Quando necessário, acrescentar aulas, termos, testes e exercícios de programação ligados aos projetos dele.
+- **Meta final:** sair do curso como um vibe coder completo, consciente do que está fazendo, usando a IA como assistente e não como cérebro principal.
+- **Visual lúdico:** a plataforma deve ter um layout lúdico, para que a jornada seja prazerosa e não cansativa, sem perder a leitura confortável das aulas.
