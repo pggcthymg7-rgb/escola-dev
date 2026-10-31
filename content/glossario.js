@@ -97,5 +97,13 @@ Escola.glossario([
 ["Dependência","Código de outras pessoas (biblioteca ou framework) de que o seu projeto precisa para funcionar. Em Node.js, ficam listadas no package.json."],
 ["npm","Node Package Manager: ferramenta que baixa e organiza as dependências de um projeto Node.js a partir da lista do package.json."],
 ["Web","World Wide Web: o conjunto de páginas e serviços ligados por links que você abre num navegador. Funciona sobre a internet, mas não é a internet."],
-["fetch","Função do JavaScript (uma API do navegador, também disponível no Node.js) que faz uma requisição HTTP e devolve a resposta. Ex.: await fetch(endereço)."]
+["fetch","Função do JavaScript (uma API do navegador, também disponível no Node.js) que faz uma requisição HTTP e devolve a resposta. Ex.: await fetch(endereço)."],
+["Controle de versão","Sistema que registra cada mudança nos arquivos de um projeto, com data, autor e motivo, e permite voltar a qualquer ponto. O mais usado é o Git."],
+["Branch (ramo)","Uma linha paralela de trabalho num repositório. Permite mudar arquivos sem mexer na versão oficial (geralmente a main) até a hora de juntar."],
+["Pull request","No GitHub, o pedido formal para juntar as mudanças de um ramo em outro. Mostra o que mudou e permite revisar antes do merge. Em português, \"solicitação de pull\"."],
+["Merge","Juntar as mudanças de um ramo em outro. Depois do merge na main, as mudanças passam a fazer parte da versão oficial."],
+["Push e pull","Push envia commits do seu computador para o repositório remoto (GitHub); pull traz para o seu computador o que mudou no remoto."],
+["Clone e fork","Clone é uma cópia de trabalho de um repositório, ligada ao original. Fork é uma cópia do repositório de outra pessoa para dentro da sua conta no GitHub."],
+[".gitignore","Arquivo com a lista do que o Git deve ignorar e nunca registrar, como a pasta node_modules ou o arquivo .env."],
+["Código aberto","Software cujo código-fonte é público e pode ser usado, estudado e, conforme a licença, modificado por qualquer pessoa. Ex.: Git, Node.js."]
 ]);
