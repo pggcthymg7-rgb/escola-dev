@@ -173,3 +173,4 @@ const P=[
 {id:"f3",t:"Fase 3: Git e organização",m:"Marco: uma versão oficial de cada projeto, sem segredos no GitHub."},
 {id:"f4",t:"Fase 4: segurança e auditoria",m:"Marco: protejo as rotas da API e explico cada linha."},
 {id:"f5",t:"Fase 5: operar com IA",m:"Marco: especifico, reviso e audito um módulo novo."}];
+const T_LEGADO = T; // apelido usado pela interface nova (o nome T é usado lá para outra coisa)

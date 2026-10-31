@@ -39,3 +39,40 @@ nav{top:0;bottom:auto;right:auto;width:210px;flex-direction:column;border-top:0;
 nav button{flex:none;flex-direction:row;font-size:15px;gap:10px;padding:10px 12px;justify-content:flex-start}
 main{margin-left:230px;max-width:none;padding:30px 40px 60px}main>div{max-width:760px}}
 @media (prefers-reduced-motion:no-preference){.bar i{transition:width .4s}}
+
+/* ---- Marco 1: motor da escola ---- */
+#app:focus{outline:none}
+.leitura{position:fixed;top:0;left:0;right:0;height:4px;background:transparent;z-index:9}
+.leitura i{display:block;height:100%;width:0;background:var(--ac)}
+.est{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;flex:none;font-size:15px;border:2px solid var(--ln);color:var(--mu)}
+.est.concluido{background:var(--ok);border-color:var(--ok);color:#fff}
+.est.andamento{border-color:var(--ac);color:var(--ac)}
+.est.disponivel{border-color:var(--ac);color:var(--ac)}
+.est.bloqueado,.est.construcao{background:var(--bg)}
+.it{display:flex;gap:12px;align-items:flex-start;width:100%;text-align:left;font:inherit;color:inherit;background:var(--card);border:1px solid var(--ln);border-radius:14px;padding:12px 14px;margin:8px 0;cursor:pointer;min-height:56px}
+.it.bloqueado,.it.construcao{cursor:default;opacity:.92}
+.it b{display:block}
+.falta{margin:6px 0 0;padding:0;list-style:none;font-size:13.5px;color:var(--wa)}
+.falta li:before{content:"→ "}
+.pill.ok{background:var(--ok);color:#fff}.pill.g{background:var(--bg);color:var(--mu);border:1px solid var(--ln)}
+.aviso{background:var(--wa2);color:var(--tx);border:1px solid var(--wa);border-radius:12px;padding:12px 14px;margin:10px 0}
+.obj-box{background:var(--ac2);border-radius:12px;padding:10px 14px;margin:12px 0}
+.opt.sel{border-color:var(--ac);background:var(--ac2)}
+.opt:disabled{cursor:default;opacity:1;color:inherit}
+.q{border-top:1px solid var(--ln);padding-top:12px;margin-top:14px}
+.q:first-of-type{border-top:0;margin-top:0;padding-top:0}
+.crit{display:flex;gap:10px;align-items:flex-start;padding:8px 0;cursor:pointer;min-height:44px}
+.crit input{width:22px;height:22px;flex:none;margin-top:2px;accent-color:var(--ac)}
+.modelo{background:var(--bg);border:1px dashed var(--ln);border-radius:10px;padding:10px 12px;margin:8px 0}
+.nota{font-size:34px;font-weight:700;line-height:1}
+.nota.ok{color:var(--ok)}.nota.no{color:var(--wa)}
+.ind a,.ind button{display:block;width:100%;text-align:left;background:none;border:0;font:inherit;color:var(--ac);padding:8px 0;min-height:40px;cursor:pointer}
+details.card>summary{cursor:pointer;font-weight:600;min-height:32px}
+input[type=search],input[type=text],select{width:100%;font:inherit;padding:12px;border:1px solid var(--ln);border-radius:10px;background:var(--card);color:var(--tx)}
+input:focus-visible,select:focus-visible,summary:focus-visible,a:focus-visible,.it:focus-visible,.opt:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+a{color:var(--ac)}
+.cnt{font-size:12.5px;color:var(--mu)}.cnt.ok{color:var(--ok)}
+.snip{font-size:14px;color:var(--mu);margin:4px 0 0}
+mark{background:var(--wa2);color:inherit;border-radius:3px;padding:0 2px}
+.seg{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+@media (max-width:420px){nav button{font-size:10px}nav button span{font-size:18px}}
