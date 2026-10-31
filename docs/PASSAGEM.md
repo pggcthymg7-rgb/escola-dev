@@ -8,6 +8,8 @@ Em 31/10/2026 o aluno deixou de usar o chat de planejamento separado. A partir d
 2. Ele gosta de entender o porquê das coisas, não de decorar. Quando ele perguntar algo, explique a causa e não só a resposta.
 3. Diga sempre o que você testou e o que não testou. Nunca invente referência, livro, link ou vídeo.
 4. Quando houver uma decisão com vantagens e desvantagens, apresente as opções e recomende uma. Avise qualquer risco de segurança que notar, inclusive nos outros projetos dele.
+5. (Acrescentada pelo aluno em 31/10/2026.) O Claude Code conduz a criação. Tudo que envolva código ou programação é explicado em linguagem comum, traduzida.
+6. (Acrescentada pelo aluno em 31/10/2026.) A segurança é proporcional: a plataforma é de estudo pessoal e não precisa de segurança extrema.
 
 ## Contexto que não está nos outros arquivos
 
