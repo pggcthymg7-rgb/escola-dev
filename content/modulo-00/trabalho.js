@@ -1,0 +1,29 @@
+/* Módulo 0.0, trabalho do módulo: mapa do ecossistema dos projetos do aluno. */
+Escola.atividade({
+  id: 'm00-trabalho', tipo: 'trabalho', modulo: 'm00',
+  titulo: 'Trabalho: o mapa do ecossistema dos seus projetos',
+  roteiro: [
+    'Liste todos os seus repositórios: entre em github.com, clique na sua foto (canto superior direito) e em Your repositories. Anote o nome de cada um e se é público ou privado.',
+    'Para cada repositório, abra a página dele e descubra o que é: página, site, aplicação web ou sistema (aula 1). Se houver vários com nomes parecidos, anote qual parece ser a versão oficial e por quê (última atualização, conteúdo mais completo).',
+    'Para cada projeto, descubra se ele está no ar e onde: procure na coluna da direita do repositório a seção Deployments, um link no campo About, ou lembre em qual hospedagem você o publicou (Render, Cloudflare, GitHub Pages). Anote o endereço público e o tipo de hospedagem (estática, sob demanda, sempre ligada) (aula 7).',
+    'Para cada projeto que roda código no servidor, anote as APIs de terceiros que ele usa (por exemplo, Gemini, planilha do Google) e se ele tem uma API própria (aula 5).',
+    'Para cada projeto, confira se existe .gitignore e se ele lista .env, e anote os NOMES das variáveis de ambiente que o código usa, buscando process.env no repositório. Não copie nenhum valor (aula 8).',
+    'Monte o mapa no caderno de anotações (ou num papel): uma caixa por projeto, com setas para os serviços externos que ele usa e para a hospedagem onde roda. Use os termos do módulo.',
+    'Escreva as respostas de entrega abaixo. Elas são a parte avaliada.'
+  ],
+  obj: [],
+  dis: [
+    { id: 'm00-w-d1', aula: 'm00-a01', q: 'Apresente a tabela final dos seus projetos com estas colunas: nome, o que é (página, site, aplicação web ou sistema), público ou privado, onde está hospedado e tipo de hospedagem, endereço público (ou "não está no ar"). Inclua todos os repositórios, mesmo os antigos.', min: 400,
+      modelo: 'Exemplo de duas linhas: secretaria-imoveis-whatsapp | sistema (programa, planilha, WhatsApp, Gemini, painel) | privado | Render, servidor sempre ligado | fora do ar por decisão própria. zava-visit | site estático | público | GitHub Pages, estática | endereço do Pages. (A tabela real tem uma linha para cada repositório.)',
+      criterios: ['Todos os repositórios aparecem', 'A classificação de cada um segue as definições da aula 1', 'O tipo de hospedagem é coerente com o que o projeto faz', 'Projetos que não estão no ar ou com dúvida aparecem marcados, não omitidos', 'Repositórios duplicados ou parecidos têm a versão oficial indicada'] },
+    { id: 'm00-w-d2', aula: 'm00-a05', q: 'Escolha o projeto com mais peças e descreva o fluxo de um pedido de ponta a ponta: quem é o cliente, quais rotas ou funções são chamadas, quais APIs de terceiros entram, onde os dados ficam guardados e em que pontos há um segredo envolvido (só o nome, nunca o valor).', min: 350,
+      modelo: 'Exemplo com a secretaria: uma mensagem chega pelo WhatsApp (conexão contínua mantida pelo programa). O programa, rodando na Render, consulta a planilha do Google (API de terceiros, com credencial em variável de ambiente) para achar imóveis, pede ao Gemini (API de terceiros, chave GEMINI_API_KEY em variável de ambiente) que redija a resposta e responde no WhatsApp. Pelo painel, o navegador (cliente) chama as rotas próprias em Express para listar e editar imóveis, e os dados ficam na planilha.',
+      criterios: ['Identifica cliente e servidor no fluxo', 'Cita rotas ou funções próprias envolvidas', 'Cita as APIs de terceiros e o papel de cada uma', 'Diz onde os dados ficam guardados', 'Aponta onde há segredos, só pelo nome, e onde eles ficam'] },
+    { id: 'm00-w-d3', aula: 'm00-a08', q: 'Relate o que você encontrou nas conferências de .gitignore, .env e variáveis de ambiente. Para cada problema encontrado (ou para o mais importante), descreva o que precisa ser feito, em que ordem, e em que módulo do curso você pretende fazer com calma. Se não encontrou problema, explique como conferiu.', min: 300,
+      modelo: 'Exemplo: no projeto X, o .gitignore existe mas não lista .env, e o histórico mostra que um .env já foi enviado. Ordem: 1) trocar as chaves que estavam nele, no serviço de origem; 2) cadastrar as novas no painel da hospedagem; 3) incluir .env no .gitignore e parar de rastrear o arquivo; 4) conferir o uso no painel do serviço. Faço o passo 1 agora, por ser simples e urgente, e a revisão completa no módulo 8 (Segurança e auditoria).',
+      criterios: ['Relata o que foi conferido em cada projeto com código de servidor', 'Para o problema mais importante, propõe a ordem correta (trocar o segredo antes de mexer no repositório)', 'Não expõe nenhum valor secreto na resposta', 'Liga a correção a um módulo do curso ou justifica fazer já', 'Se não houve problema, explica como conferiu'] },
+    { id: 'm00-w-d4', aula: 'm00-a07', q: 'Olhando o mapa inteiro, escreva três decisões que você tomaria para simplificar ou organizar o seu ecossistema (por exemplo, juntar repositórios duplicados, mudar o tipo de hospedagem de um projeto, arquivar o que não usa) e justifique cada uma com o que aprendeu no módulo.', min: 300,
+      modelo: 'Exemplo: 1) Escolher uma versão oficial entre os repositórios de tours e arquivar os demais, para não editar o errado (aula 6). 2) Manter o zava-visit em hospedagem estática, porque ele não precisa de servidor, o que é mais barato e estável (aula 7). 3) Antes de recolocar a secretaria no ar, conferir os segredos e o .gitignore e decidir um plano que não durma quando ocioso, porque o robô precisa ficar ativo (aulas 7 e 8).',
+      criterios: ['Apresenta três decisões concretas', 'Cada decisão é justificada com um conceito do módulo', 'Pelo menos uma decisão trata de organização de repositórios', 'Pelo menos uma decisão trata de hospedagem ou de segredos'] }
+  ]
+});
