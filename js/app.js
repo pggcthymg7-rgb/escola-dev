@@ -1,3 +1,4 @@
+const G=Escola.G; // o glossário agora vive no registro de conteúdo (content/glossario.js)
 let S={done:{},tasks:{},best:0,theme:""};
 try{Object.assign(S,JSON.parse(localStorage.getItem("escoladev")||"{}"))}catch(e){}
 const save=()=>{try{localStorage.setItem("escoladev",JSON.stringify(S))}catch(e){}};

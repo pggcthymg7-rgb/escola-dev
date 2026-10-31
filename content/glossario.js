@@ -1,5 +1,5 @@
-/* Glossário. Cada entrada: [termo, definição]. */
-const G=[
+/* Glossário. Cada entrada: [termo, definição]. Ordenado automaticamente. */
+Escola.glossario([
 ["Software","Qualquer conjunto de instruções que faz o computador executar uma tarefa. É o termo mais amplo. O que você pode tocar (tela, teclado) é o hardware."],
 ["Programa","Um software que executa uma tarefa. Programa e software são quase sinônimos no dia a dia."],
 ["Aplicativo (app)","Software que a pessoa usa direto para uma tarefa, como o WhatsApp ou a calculadora."],
@@ -76,5 +76,14 @@ const G=[
 ["Latência","Tempo de ida e volta de um pedido. Quanto mais longe o servidor, maior."],
 ["Timeout","Erro de tempo esgotado: o cliente desistiu porque a resposta demorou demais."],
 ["curl","Programa de terminal que faz um pedido HTTP e mostra a resposta. Com curl -i você vê também o status e os cabeçalhos."]
-];
-G.sort((a,b)=>a[0].localeCompare(b[0],"pt"));
+,
+["Tarefa da aula", "Atividade obrigatória de cada aula, respondida dentro da página. Tem questões objetivas e dissertativas, não tem nota e conta como concluída quando 100% está respondido."],
+["Teste de bloco", "Atividade com nota, feita a cada 3 ou 4 aulas, sobre essas aulas. A nota mínima de aprovação é 7,0."],
+["Trabalho do módulo", "Aplicação prática do módulo nos seus projetos reais, com roteiro, perguntas de entrega e critérios. Nota mínima 7,0."],
+["Prova do módulo", "Avaliação final do módulo, com questões sorteadas de um banco maior. Aprová-la libera o módulo seguinte. Nota mínima 7,0."],
+["Boletim", "Tela que reúne suas notas, tentativas, média e situação em cada módulo."],
+["Autoavaliação por critérios", "Forma de corrigir dissertativas sem servidor: você compara sua resposta com a resposta-modelo e marca os critérios que cumpriu. A nota é a soma dos critérios cumpridos."],
+["Resposta-modelo e critérios", "Exemplo de boa resposta e lista de itens que a resposta deve ter. Aparecem depois que você envia a sua."],
+["Fila de revisão", "Lista das questões objetivas que você errou, para treinar até acertar."],
+["Caderno de dúvidas", "Lugar para anotar qualquer pergunta, ligada ou não ao curso, com status de aberta ou respondida."]
+]);
