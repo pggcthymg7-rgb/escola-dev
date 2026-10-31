@@ -4,11 +4,13 @@ const http = require('http'), fs = require('fs'), path = require('path');
 const { chromium } = require('playwright');
 const assert = require('assert');
 const raiz = path.resolve(__dirname, '..');
+const Demo = require('./fixtures/demo.js');   // o módulo de demonstração saiu do site; os testes o acrescentam ao índice
 const TIPOS = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.json': 'application/json', '.png': 'image/png' };
 const servidor = http.createServer((req, res) => {
   const f = path.join(raiz, decodeURIComponent(req.url.split('?')[0]).replace(/\/$/, '/index.html'));
   if (!f.startsWith(raiz) || !fs.existsSync(f) || fs.statSync(f).isDirectory()) { res.writeHead(404); return res.end(); }
-  res.writeHead(200, { 'Content-Type': TIPOS[path.extname(f)] || 'application/octet-stream' }); res.end(fs.readFileSync(f));
+  res.writeHead(200, { 'Content-Type': TIPOS[path.extname(f)] || 'application/octet-stream' });
+  const corpo = fs.readFileSync(f); res.end(f === path.join(raiz, 'content', 'indice.js') ? corpo + Demo.trechoNavegador : corpo);
 });
 let ok = 0; const passo = async (nome, f) => { try { await f(); ok++; console.log('  ok  ' + nome); } catch (e) { console.error('FALHOU: ' + nome + '\n' + e.stack); process.exitCode = 1; } };
 const ANTIGO = { done: { m0a: true, f0: true }, tasks: { t1: { s: 2, n: 'minha nota antiga' } }, best: 4, theme: '', goal: 120, days: { '2026-10-30': 1800 }, fc: { API: 3 } };
@@ -198,7 +200,7 @@ const ANTIGO = { done: { m0a: true, f0: true }, tasks: { t1: { s: 2, n: 'minha n
     await p.reload(); await p.waitForSelector('h1'); await p.evaluate(() => navigator.serviceWorker.ready);
     await p.waitForFunction(() => caches.keys().then(k => k.length > 0)); await p.reload(); await p.evaluate(() => navigator.serviceWorker.ready);
     const guardados = await p.evaluate(async () => { const c = await caches.open((await caches.keys())[0]); return (await c.keys()).map(r => new URL(r.url).pathname); });
-    for (const f of ['/js/motor.js', '/content/modulo-demo/aula-01.js', '/content/modulo-demo/prova.js', '/content/glossario.js', '/css/app.css']) assert.ok(guardados.includes(f), 'fora do cache: ' + f);
+    for (const f of ['/js/motor.js', '/content/modulo-00/aula-01.js', '/content/modulo-00/prova.js', '/tests/fixtures/modulo-demo/aula-01.js', '/content/glossario.js', '/css/app.css']) assert.ok(guardados.includes(f), 'fora do cache: ' + f);
     await ctx.setOffline(true); await p.reload(); await p.waitForSelector('h1');
     await ir(p, 'curso'); await p.click('[data-a=modulo][data-i=demo]'); await p.click('[data-a=abrir][data-i="aula:demo-a02"]'); assert.strictEqual(await h1(p), 'Como funcionam as notas e a liberação');
     await ir(p, 'curso'); await p.click('[data-a=modulo][data-i=demo]'); await p.click('[data-a=abrir][data-i="prova:demo-prova"]'); await p.click('[data-a=iniciar]'); assert.ok(await p.locator('.q .opt').count());
@@ -216,8 +218,15 @@ const ANTIGO = { done: { m0a: true, f0: true }, tasks: { t1: { s: 2, n: 'minha n
   await passo('módulo de demonstração: aula 2 bloqueada com explicação, no desktop', async () => {
     await ir(d.p, 'curso'); await d.p.click('[data-a=modulo][data-i=demo]'); assert.match(await d.p.textContent('#app'), /Conclua antes a aula “Como estudar na Escola Dev”/);
   });
+  await passo('Módulo 0.0 real: abre, mostra os 2 blocos e a aula 1 completa, com a aula 2 bloqueada', async () => {
+    await ir(d.p, 'curso'); await d.p.click('[data-a=modulo][data-i=m00]'); const t = await d.p.textContent('#app');
+    assert.match(t, /Bloco 1/); assert.match(t, /Bloco 2/); assert.match(t, /Fechamento do módulo/); assert.match(t, /Conclua antes a aula “Software, sistema, app, site e página/);
+    await d.p.click('[data-a=abrir][data-i="aula:m00-a01"]'); assert.match(await h1(d.p), /^Software, sistema, app, site e página/);
+    const a = await d.p.textContent('#app'); for (const parte of ['1. O problema', '10. Termos novos', 'Referências', 'verificado em 2026-10-31', 'Para aprofundar', 'Tarefa da aula']) assert.ok(a.includes(parte), 'falta na aula: ' + parte);
+    await ir(d.p, 'curso'); await d.p.click('[data-a=modulo][data-i=m00]');
+  });
   await passo('botão voltar do navegador volta à tela anterior', async () => {
-    await ir(d.p, 'bol'); await d.p.goBack(); assert.match(await h1(d.p), /Módulo|Demonstração/); 
+    await ir(d.p, 'bol'); await d.p.goBack(); assert.match(await h1(d.p), /Módulo|Demonstração|Noções/); 
   });
   await d.ctx.close();
 

@@ -1,4 +1,4 @@
-/* Módulo de demonstração do motor (Marco 1). Será removido quando o Módulo 0.0 real entrar (Marco 2). */
+/* Módulo de demonstração do motor. Saiu do site no Marco 2 e ficou só como material dos testes automáticos (tests/fixtures/demo.js). */
 Escola.aula({
  "id": "demo-a01",
  "modulo": "demo",

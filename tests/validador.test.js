@@ -5,10 +5,12 @@ const { validarRegistro, carregar } = require('../tools/validar-conteudo.js');
 const raiz = path.resolve(__dirname, '..');
 let ok = 0;
 const teste = (nome, f) => { try { f(); ok++; console.log('  ok  ' + nome); } catch (e) { console.error('FALHOU: ' + nome + '\n' + e.stack); process.exitCode = 1; } };
-const novo = () => carregar(raiz);
+const Demo = require('./fixtures/demo.js');
+const novo = () => Demo.acrescentar(carregar(raiz), raiz);   // conteúdo real + módulo de demonstração (material de teste)
 const falha = (reg, trecho, opc) => { const r = validarRegistro(reg, opc); assert.ok(r.erros.some(e => e.includes(trecho)), 'esperava erro com “' + trecho + '”, veio: ' + JSON.stringify(r.erros.slice(0, 4))); };
 
-teste('o conteúdo atual do repositório passa sem erros', () => { const r = validarRegistro(novo()); assert.deepStrictEqual(r.erros, []); });
+teste('o conteúdo atual do repositório passa sem erros', () => { const r = validarRegistro(carregar(raiz)); assert.deepStrictEqual(r.erros, []); });
+teste('o conteúdo com o módulo de demonstração também passa', () => { const r = validarRegistro(novo()); assert.deepStrictEqual(r.erros, []); });
 teste('reprova aula sem uma das 10 partes', () => { const r = novo(); r.aulas['demo-a01'].partes.splice(3, 1); falha(r, 'precisa das 10 partes'); });
 teste('reprova parte vazia', () => { const r = novo(); r.aulas['demo-a01'].partes[4].html = ' '; falha(r, 'está vazia'); });
 teste('reprova termo novo que não existe no glossário', () => { const r = novo(); r.aulas['demo-a01'].partes[9].termos.push('Termo Fantasma'); falha(r, 'Termo Fantasma'); });

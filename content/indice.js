@@ -73,25 +73,6 @@
    "titulo": "10 Operar com IA",
    "metaAulas": 8,
    "trabalhoPrevisto": "Projeto integrador: especificar, construir e auditar um módulo novo"
-  },
-  {
-   "id": "demo",
-   "titulo": "Demonstração do motor da escola",
-   "demo": true,
-   "descricao": "Módulo pequeno, só para você testar liberação, tarefas, testes, dissertativas e boletim. Não conta no progresso do curso e será removido no Marco 2.",
-   "blocos": [
-    {
-     "id": "demo-b1",
-     "aulas": [
-      "demo-a01",
-      "demo-a02",
-      "demo-a03"
-     ],
-     "teste": "demo-teste1"
-    }
-   ],
-   "trabalho": "demo-trabalho",
-   "prova": "demo-prova"
   }
  ],
  "arquivos": [
@@ -106,12 +87,6 @@
   "content/modulo-00/teste-1.js",
   "content/modulo-00/teste-2.js",
   "content/modulo-00/trabalho.js",
-  "content/modulo-00/prova.js",
-  "content/modulo-demo/aula-01.js",
-  "content/modulo-demo/aula-02.js",
-  "content/modulo-demo/aula-03.js",
-  "content/modulo-demo/teste-1.js",
-  "content/modulo-demo/trabalho.js",
-  "content/modulo-demo/prova.js"
+  "content/modulo-00/prova.js"
  ]
 });})(typeof self!=='undefined'?self:this);

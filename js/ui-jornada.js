@@ -29,7 +29,7 @@
         ['🛠️', 'Ser aprovado no trabalho do módulo', P.trabalho], ['🎓', 'Ser aprovado na prova do módulo', P.prova], ['🏝️', 'Concluir um módulo inteiro', P.modulo],
         ['🔥', 'Cada dia com 10 minutos ou mais de estudo', P.diaEstudo], ['📜', 'Cada item concluído no material anterior', P.legado]]
         .map(g => '<li><span aria-hidden="true">' + g[0] + '</span><span style="flex:1">' + g[1] + '</span><b>+' + g[2] + '</b></li>').join('') + '</ul>' +
-      '<p class="mu" style="margin:8px 0 0">Os pontos do módulo de demonstração deixam de contar quando ele for retirado, no Marco 2. Refazer uma avaliação não dá pontos repetidos: vale a melhor nota.</p></div>';
+      '<p class="mu" style="margin:8px 0 0">Refazer uma avaliação não dá pontos repetidos: vale a melhor nota.</p></div>';
     return h;
   };
 

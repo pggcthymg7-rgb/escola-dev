@@ -75,7 +75,7 @@
     const demo = c.modulos.find(m => m.demo);
     if (demo) h += '<h2>Teste o motor</h2><div class="mapa">' + parada(demo) + '</div>';
     h += '<h2>A trilha</h2><div class="mapa">' + c.modulos.filter(m => !m.demo).map(parada).join('') + '<div class="parada fim"><span class="marco" aria-hidden="true">🚀</span><div class="card"><b>Vibe coder consciente</b><div class="mu">O fim da trilha: você entende, define, pede, confere e audita o que constrói.</div></div></div></div>';
-    h += '<h2>Material anterior</h2><button class="card item" data-a="nav" data-i="leg"><b>Lições, tarefas e prova da primeira versão</b><div class="mu">Continuam abertas até o Módulo 0.0 novo entrar.</div></button>';
+    h += '<h2>Material anterior</h2><button class="card item" data-a="nav" data-i="leg"><b>Lições, tarefas e prova da primeira versão</b><div class="mu">A primeira versão da escola, mantida para consulta e com o seu progresso. O Módulo 0.0 novo substitui estas lições.</div></button>';
     return h;
   };
   AC.modulo = i => { UI.ir('mod', { id: i }); return 'nav'; };
