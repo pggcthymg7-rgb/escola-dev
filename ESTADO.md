@@ -1,6 +1,6 @@
 # Escola Dev: estado do projeto
 
-Última atualização: 31/10/2026 (terceira sessão, Marco 1). Atualize este arquivo ao fim de cada sessão de trabalho.
+Última atualização: 31/10/2026 (quarta sessão, Marco 2). Atualize este arquivo ao fim de cada sessão de trabalho.
 
 ## O que é
 Plataforma de estudo pessoal (apostila, tarefas, provas, glossário, revisão com cartões, painel com meta diária). Funciona offline como PWA, hospedada no GitHub Pages. A plataforma é uma ferramenta de apoio e não faz parte do currículo do aluno.
