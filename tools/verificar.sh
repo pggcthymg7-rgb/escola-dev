@@ -3,6 +3,7 @@
 # Uso: sh tools/verificar.sh          (use "rapido" para pular o teste de navegador: sh tools/verificar.sh rapido)
 cd "$(dirname "$0")/.." || exit 1
 set -e
+grep -q "escola-dev-$(sed -n "s/.*VERSAO: '\(v[0-9]*\)'.*/\1/p" js/registro.js)'" sw.js || { echo "A versão em js/registro.js não bate com a do sw.js"; exit 1; }
 echo "== Validador de conteúdo =="; node tools/validar-conteudo.js
 echo; echo "== Testes do motor ==";          node tests/motor.test.js | tail -1
 echo "== Testes do armazenamento ==";        node tests/armazenamento.test.js | tail -1

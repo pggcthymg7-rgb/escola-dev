@@ -2,6 +2,7 @@
    Roda no navegador (window.Escola), no service worker e no Node (validador e testes). */
 (function (raiz) {
   const R = {
+    VERSAO: 'v8',          // igual à versão do cache no sw.js (o verificar.sh confere); aparece no rodapé do Início e em Mais
     aulas: {}, atividades: {}, curso: { modulos: [], arquivos: [] }, G: [], erros: [],
     defCurso(c) { R.curso = c; },
     aula(a) { if (R.aulas[a.id]) R.erros.push('aula duplicada: ' + a.id); R.aulas[a.id] = a; },

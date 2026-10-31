@@ -54,6 +54,7 @@
     if (fila) h += '<div class="card"><span class="pill w">Revisão</span><h3>' + fila + (fila === 1 ? ' questão errada na fila' : ' questões erradas na fila') + '</h3><button class="btn s" data-a="nav" data-i="rev">Revisar agora</button></div>';
     const legPct = UI.pctLegado ? UI.pctLegado() : 0;
     h += '<div class="card"><b>Material anterior</b><p class="mu">Lições, tarefas e prova da primeira versão da escola. Seu progresso nelas foi mantido (' + legPct + '%).</p><button class="btn s g" data-a="nav" data-i="leg">Abrir material anterior</button></div>';
+    h += '<p class="versao">Escola Dev, versão ' + esc(reg.VERSAO) + '</p>';
     return h;
   };
   UI.AC.nav = i => { UI.ir(i, {}); return 'nav'; };

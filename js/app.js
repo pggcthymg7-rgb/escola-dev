@@ -8,6 +8,10 @@
   try { history.replaceState({ v: 'home', p: {} }, ''); } catch (e) {}
   UI.render();
   UI.persist().then(() => { if (UI.U.v === 'mais') UI.render(); });
+  if ('serviceWorker' in navigator && navigator.serviceWorker.controller) {
+    let recarregou = false;   // havia uma versão antiga no aparelho: quando a nova assumir, salva e recarrega uma vez
+    navigator.serviceWorker.addEventListener('controllerchange', () => { if (recarregou) return; recarregou = true; try { UI.salvar(); } catch (e) {} location.reload(); });
+  }
   if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
   if (document.readyState === 'complete' && 'serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
 })();
